@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Um paralelo direto entre receitas de cozinha e algoritmos: ingredientes são variáveis, mise en place é inicialização e seguir a receita à risca é determinismo.">
+    <meta name="author" content="Grupo Optimus">
+    <title>O que os programadores aprendem com os cozinheiros | Optimus</title>
+
+    <!-- Icone que aparece na aba do navegador -->
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+
+    <!-- Folha de estilo externa: toda a estilizacao fica no style.css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ============================================================
+         TOPO DA PAGINA: logo, nome do blog e menu de navegacao
+         ============================================================ -->
+    <header class="cabecalho">
+        <div class="container cabecalho__interno">
+
+            <div class="logo">
+                <span class="logo__icone">&lt;/&gt;</span>
+                <div class="logo__textos">
+                    <span class="logo__nome">Optimus</span>
+                    <span class="logo__slogan">Cozinha &amp; Código</span>
+                </div>
+            </div>
+
+            <!-- Menu de navegacao: cada item leva a uma secao real desta pagina -->
+            <nav class="menu">
+                <ul class="menu__lista">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#conceitos">Conceitos</a></li>
+                    <li><a href="#comparacao">Comparação</a></li>
+                    <li><a href="#grupo">Grupo</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- ============================================================
+         CONTEUDO PRINCIPAL
+         ============================================================ -->
+    <main class="container">
+
+        <!-- O texto completo do artigo fica dentro da tag <article> -->
+        <article class="artigo">
+
+            <!-- Cabecalho interno do artigo -->
+            <header class="artigo__topo" id="inicio">
+                <p class="artigo__categoria">Fundamentos de Programação</p>
+
+                <!-- O <h1> e exclusivo do titulo principal da pagina -->
+                <h1>O que os programadores aprendem com os cozinheiros</h1>
+
+                <p class="artigo__resumo">
+                    Toda receita é um algoritmo. Todo cozinheiro já debugou um prato salgado
+                    demais. A diferença é que a cozinha ensina isso antes de você abrir um
+                    editor de código.
+                </p>
+
+                <div class="artigo__meta">
+                    <p class="artigo__autor">Por <strong>Grupo Optimus</strong></p>
+                    <p class="artigo__data">Publicado em 04 de agosto de 2026 &middot; 6 min de leitura</p>
+                </div>
+            </header>
+
+            <!-- Toda imagem do conteudo fica agrupada em uma <figure> -->
+            <figure class="figura">
+                <img src="img/capa-receita-algoritmo.svg"
+                     alt="Ilustração de um cartão de receita ao lado de um editor de código, lado a lado, ligados por um sinal de igual.">
+                <figcaption>
+                    Receita e algoritmo fazem exatamente a mesma pergunta: qual é o próximo
+                    passo?
+                </figcaption>
+            </figure>
+
+            <p>
+                Ingrediente é variável. Modo de preparo é função. Quem já errou o ponto do
+                arroz sabe exatamente o que é um bug de lógica: os passos certos, na ordem
+                errada, ou com o valor errado numa das entradas.
+            </p>
+
+            <p>
+                Você não precisa saber programar para pensar como programador. Se você já
+                cozinhou seguindo uma receita, você já executou um algoritmo — só não tinha
+                esse nome.
+            </p>
+
+            <!-- Linha divisoria tematica separando a introducao do desenvolvimento -->
+            <hr>
+
+            <!-- ---------- SECAO 1 ---------- -->
+            <section class="secao">
+                <h2>Receita é algoritmo, sem eufemismo</h2>
+
+                <p>
+                    Um algoritmo é uma sequência finita de passos que transforma uma entrada
+                    em uma saída. É isso, sem mistério. Agora leia de novo pensando numa
+                    receita de bolo: farinha, ovos e açúcar entram (entrada), você segue os
+                    passos na ordem certa, e um bolo sai do forno (saída).
+                </p>
+
+                <p>
+                    A receita não deixa dúvida sobre o que fazer primeiro. Ela não pula do
+                    passo 1 pro passo 5. E se você trocar a ordem — assar antes de misturar,
+                    por exemplo — o resultado quebra. Código funciona pela mesma lógica:
+                    trocar a ordem dos passos muda o resultado, mesmo usando os mesmos
+                    "ingredientes".
+                </p>
+
+                <!-- Uso consciente do <br>: separa o autor da obra dentro da mesma
+                     citacao, sem criar um novo bloco de texto -->
+                <blockquote class="citacao">
+                    <p>
+                        "Mise-en-place is the religion of all good cooks."
+                    </p>
+                    <cite>— Anthony Bourdain<br>
+                        <em>Kitchen Confidential</em> (2000)</cite>
+                </blockquote>
+
+                <p>
+                    Troque "cooks" por "programadores" e a frase continua fazendo sentido.
+                    Organização não é frescura de quem tem tempo sobrando — é o que separa um
+                    prato (ou um sistema) que funciona sob pressão de um que desmorona na
+                    primeira correria.
+                </p>
+            </section>
+
+            <!-- ---------- SECAO 2 ---------- -->
+            <section class="secao" id="conceitos">
+                <h2>Os ingredientes são as variáveis do prato</h2>
+
+                <p>
+                    Três ideias da cozinha explicam metade da programação básica. Nenhuma
+                    delas exige forno nem IDE — só atenção.
+                </p>
+
+                <h3>1. Ingredientes = variáveis</h3>
+                <p>
+                    "2 xícaras de farinha" guarda um valor que pode mudar: hoje são 2,
+                    amanhã você dobra a receita e são 4. Uma variável faz exatamente isso —
+                    guarda um valor que muda ao longo da execução, sem mudar o nome nem a
+                    receita em si.
+                </p>
+
+                <h3>2. Mise en place = inicialização</h3>
+                <p>
+                    Separar e medir tudo antes de ligar o fogão é inicializar o estado do
+                    programa antes de rodar a lógica principal. Cozinheiro que começa sem
+                    mise en place para no meio pra procurar sal. Programador que não
+                    inicializa os dados direito trava no meio da execução — só que o erro
+                    aparece com um nome mais assustador, tipo <code>NullPointerException</code>.
+                </p>
+
+                <h3>3. Tempero a gosto = parâmetros configuráveis</h3>
+                <p>
+                    "Sal a gosto" é um parâmetro com valor padrão que você pode sobrescrever.
+                    A receita funciona sem você mexer em nada, mas também aceita ajuste. É a
+                    mesma ideia por trás de uma função que roda bem com os valores default,
+                    mas permite configuração pra quem sabe o que está fazendo.
+                </p>
+
+                <h4>Sinais de que sua receita — ou seu código — vai dar errado</h4>
+
+                <!-- Lista NAO ORDENADA: itens sem ordem de importancia -->
+                <ul class="lista-sinais">
+                    <li>Ingrediente medido "a olho", sem anotar a quantidade real usada;</li>
+                    <li>Passo pulado porque "acha que lembra" de cor;</li>
+                    <li>Receita copiada de três fontes diferentes e misturada sem critério;</li>
+                    <li>Fogo alto pra "acelerar" o processo;</li>
+                    <li>Provar o prato só no final, nunca durante o preparo;</li>
+                    <li>Não anotar o que funcionou, pra repetir da próxima vez.</li>
+                </ul>
+            </section>
+
+            <!-- ---------- SECAO 3 ---------- -->
+            <section class="secao" id="comparacao">
+                <h2>Bolo de chocolate vs. ordenar uma lista: passo a passo lado a lado</h2>
+
+                <p>
+                    Teoria convence pouco. Então aqui vão dois algoritmos, um de cozinha e um
+                    de código, resolvendo problemas diferentes com a mesma estrutura: uma
+                    sequência de passos que depende do passo anterior.
+                </p>
+
+                <div class="comparacao__grade">
+                    <div class="cartao">
+                        <h3>Receita: bolo de chocolate</h3>
+                        <ol class="lista-passos">
+                            <li>Separe os ingredientes: farinha, ovos, açúcar e chocolate.</li>
+                            <li>Misture os secos com os úmidos até ficar homogêneo.</li>
+                            <li>Despeje a massa na forma untada.</li>
+                            <li>Leve ao forno a 180°C por 40 minutos.</li>
+                            <li>Espere esfriar antes de desenformar.</li>
+                        </ol>
+                    </div>
+
+                    <div class="cartao">
+                        <h3>Algoritmo: ordenar uma lista</h3>
+                        <ol class="lista-passos">
+                            <li>Receba a lista de números desordenada.</li>
+                            <li>Compare cada par de vizinhos.</li>
+                            <li>Troque de posição os que estiverem fora de ordem.</li>
+                            <li>Repita a comparação até não haver mais trocas.</li>
+                            <li>Retorne a lista, agora ordenada.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <p>
+                    Cada passo depende do anterior ter dado certo. Pule um, e o resultado
+                    desanda — seja o bolo, seja a lista. Nenhum dos dois algoritmos "adivinha"
+                    o que fazer: eles só executam, na ordem, o que foi definido.
+                </p>
+
+                <h3>Seguir a receita à risca ou improvisar?</h3>
+                <p>
+                    Seguir a receita exatamente como está escrita é <strong>determinismo</strong>:
+                    mesma entrada, mesmos passos, mesmo resultado, sempre. Improvisar — forno
+                    mais fraco que o normal, faltou um ovo, a fôrma é menor — é lidar com
+                    <strong>edge case</strong>: uma condição fora do esperado que o algoritmo
+                    também precisa prever, com um <code>if</code> a mais ou um ajuste de
+                    parâmetro. Cozinheiro bom sabe quando seguir a receita e quando ajustar.
+                    Programador bom também.
+                </p>
+
+                <figure class="figura">
+                    <img src="img/passos-lado-a-lado.svg"
+                         alt="Comparação entre dois blocos organizados lado a lado, um representando os passos de uma receita e outro os passos de um algoritmo.">
+                    <figcaption>
+                        Duas listas de passos, dois domínios diferentes, a mesma lógica por
+                        trás.
+                    </figcaption>
+                </figure>
+
+                <div class="destaque">
+                    <h4>Regra do chef</h4>
+                    <p>
+                        "Prove antes de servir." Aplicado ao código: rode antes de dar deploy.
+                        Nunca confie que "deve estar funcionando" — teste, prove, só depois
+                        sirva pro cliente.
+                    </p>
+                </div>
+            </section>
+
+            <hr>
+
+            <!-- ---------- SECAO 4: GRUPO OPTIMUS ---------- -->
+            <!-- As fotos sao quadradas (300x300) e o CSS as recorta em circulo -->
+            <section class="secao equipe" id="grupo">
+                <h2>Grupo Optimus</h2>
+
+                <p>
+                    Este artigo foi produzido pelo Grupo Optimus como atividade acadêmica.
+                </p>
+
+                <h3>Integrantes</h3>
+                <div class="equipe__grade">
+                    <div class="equipe__card">
+                        <img class="equipe__avatar" src="img/andre-castelhano.jpg"
+                             alt="Foto de André Luis Castelhano">
+                        <p class="equipe__nome">André Luis Castelhano</p>
+                    </div>
+
+                    <div class="equipe__card">
+                        <img class="equipe__avatar" src="img/caue-hanzen.jpg"
+                             alt="Foto de Cauê Vergopolan Hanzen">
+                        <p class="equipe__nome">Cauê Vergopolan Hanzen</p>
+                    </div>
+
+                    <div class="equipe__card">
+                        <img class="equipe__avatar" src="img/guilherme-bonetto.jpg"
+                             alt="Foto de Guilherme da Cunha Bonetto">
+                        <p class="equipe__nome">Guilherme da Cunha Bonetto</p>
+                    </div>
+
+                    <div class="equipe__card">
+                        <img class="equipe__avatar" src="img/carlos-menger.jpg"
+                             alt="Foto de Carlos Henrique da Silva Menger Neto">
+                        <p class="equipe__nome">Carlos Henrique da Silva Menger Neto</p>
+                    </div>
+
+                    <div class="equipe__card">
+                        <img class="equipe__avatar" src="img/pedro-perdomo.jpg"
+                             alt="Foto de Pedro Pimentel Perdomo">
+                        <p class="equipe__nome">Pedro Pimentel Perdomo</p>
+                    </div>
+                </div>
+
+                <h3>Mentora</h3>
+                <div class="equipe__grade">
+                    <div class="equipe__card equipe__card--mentora">
+                        <img class="equipe__avatar" src="img/zainab-ghazaoui.jpg"
+                             alt="Foto de Zainab Ahmad Al Ghazaoui">
+                        <p class="equipe__nome">Zainab Ahmad Al Ghazaoui</p>
+                        <p class="equipe__papel">Mentora</p>
+                    </div>
+                </div>
+            </section>
+
+        </article>
+    </main>
+
+
+    <!-- ============================================================
+         RODAPE: identificacao, redes sociais e direitos autorais
+         ============================================================ -->
+    <footer class="rodape">
+        <div class="container rodape__interno">
+
+            <div class="rodape__coluna">
+                <div class="logo">
+                    <span class="logo__icone">&lt;/&gt;</span>
+                    <span class="logo__nome">Optimus</span>
+                </div>
+
+                <!-- Uso consciente do <br>: linhas de um bloco de identificacao,
+                     no mesmo formato de um endereco postal -->
+                <p class="rodape__identificacao">
+                    Grupo Optimus<br>
+                    Artigo produzido como atividade acadêmica<br>
+                    de HTML5 e CSS3 — 2º período
+                </p>
+            </div>
+
+            <div class="rodape__coluna">
+                <h5>Redes sociais</h5>
+                <!-- Links externos: target="_blank" abre em nova aba e
+                     rel="noopener" impede que a pagina aberta acesse esta -->
+                <ul class="rodape__redes">
+                    <li>
+                        <a href="https://github.com/kauoo/optimus"
+                           target="_blank" rel="noopener">GitHub</a>
+                    </li>
+                    <li>
+                        <a href="https://br.linkedin.com/"
+                           target="_blank" rel="noopener">LinkedIn</a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/uniamerica.br/"
+                           target="_blank" rel="noopener">Instagram</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="rodape__creditos">
+            <p>&copy; 2026 Grupo Optimus</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
