@@ -151,16 +151,44 @@ a:hover {
 
 
 /* ------------------------------------------------------------
-   5. GRADE DE PROJETOS
-   auto-fit + minmax faz os cartoes se reorganizarem sozinhos
-   conforme a largura da tela, sem precisar de media query
+   5. MESES E GRADE DE PROJETOS
+
+   Cada mes e uma faixa com titulo proprio; os trabalhos daquele
+   mes ficam numa grade abaixo. auto-fit + minmax faz os cartoes
+   se reorganizarem sozinhos conforme a largura da tela, sem
+   precisar de media query - 1, 2 ou 5 trabalhos por mes, tanto faz.
    ------------------------------------------------------------ */
+
+.mes {
+    padding-bottom: 44px;
+}
+
+.mes__titulo {
+    color: #ffffff;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    /* Divisoria fina abaixo do nome do mes, separando as faixas */
+    border-bottom: 1px solid #1f3d73;
+}
+
+/* Tracinho vermelho antes do nome do mes */
+.mes__titulo::before {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 3px;
+    background-color: #c8102e;
+    vertical-align: middle;
+    margin-right: 10px;
+}
 
 .projetos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
-    padding-bottom: 56px;
 }
 
 .projeto {

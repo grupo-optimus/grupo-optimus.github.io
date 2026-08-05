@@ -46,31 +46,60 @@
         </section>
 
         <!-- ============================================================
-             GRADE DE PROJETOS
-             Para adicionar um trabalho novo, copie um bloco <a class="projeto">
-             e troque o href, o titulo e a descricao.
+             TRABALHOS, AGRUPADOS POR MES
+
+             Cada mes e uma <section class="mes"> com quantos cartoes forem
+             necessarios dentro da <div class="projetos">.
+
+             PARA ADICIONAR UM TRABALHO:
+             copie um bloco <a class="projeto"> inteiro e troque tres coisas -
+             o href (nome da pasta), o titulo e a descricao.
+
+             PARA ABRIR UM MES NOVO:
+             copie uma <section class="mes"> inteira e troque o h2.
+
+             A etiqueta e opcional: sirva-se dela para a materia
+             (<span class="projeto__etiqueta">Algoritmos</span>) ou apague.
              ============================================================ -->
-        <section class="projetos">
 
-            <a class="projeto" href="cozinha-e-codigo/">
-                <span class="projeto__etiqueta">Mês 1</span>
-                <h2 class="projeto__titulo">Cozinha &amp; Código</h2>
-                <p class="projeto__texto">
-                    Um paralelo direto entre receitas de cozinha e algoritmos: ingredientes
-                    são variáveis, mise en place é inicialização e seguir a receita à risca
-                    é determinismo.
-                </p>
-                <span class="projeto__acao">Abrir o trabalho &rarr;</span>
-            </a>
+        <section class="mes">
+            <h2 class="mes__titulo">Mês 1</h2>
 
-            <div class="projeto projeto--vazio">
-                <span class="projeto__etiqueta">Mês 2</span>
-                <h2 class="projeto__titulo">Próximo trabalho</h2>
-                <p class="projeto__texto">
-                    Assim que o próximo projeto for publicado, ele aparece neste espaço.
-                </p>
+            <div class="projetos">
+
+                <a class="projeto" href="cozinha-e-codigo/">
+                    <h3 class="projeto__titulo">Cozinha &amp; Código</h3>
+                    <p class="projeto__texto">
+                        Um paralelo direto entre receitas de cozinha e algoritmos: ingredientes
+                        são variáveis, mise en place é inicialização e seguir a receita à risca
+                        é determinismo.
+                    </p>
+                    <span class="projeto__acao">Abrir o trabalho &rarr;</span>
+                </a>
+
+                <div class="projeto projeto--vazio">
+                    <h3 class="projeto__titulo">Espaço reservado</h3>
+                    <p class="projeto__texto">
+                        Os outros trabalhos deste mês entram aqui do lado.
+                    </p>
+                </div>
+
             </div>
+        </section>
 
+        <section class="mes">
+            <h2 class="mes__titulo">Mês 2</h2>
+
+            <div class="projetos">
+
+                <div class="projeto projeto--vazio">
+                    <h3 class="projeto__titulo">Ainda não começou</h3>
+                    <p class="projeto__texto">
+                        Assim que o primeiro trabalho do mês for publicado, ele aparece aqui.
+                    </p>
+                </div>
+
+            </div>
         </section>
 
         <!-- ============================================================
