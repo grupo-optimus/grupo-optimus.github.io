@@ -95,15 +95,14 @@ a:hover {
     gap: 14px;
 }
 
+/* Agora e a logo em SVG, nao mais o texto </> num quadrado vermelho.
+   O SVG ja traz o proprio fundo e contorno, entao aqui so se define
+   o tamanho. display: block tira o espaco fantasma que o navegador
+   reserva embaixo de imagens em linha e desalinharia o nome ao lado. */
 .logo__icone {
-    display: inline-block;
-    background-color: #c8102e;
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 1;
-    padding: 10px 12px;
-    border-radius: 6px;
+    display: block;
+    width: 46px;
+    height: 46px;
 }
 
 .logo__textos {
@@ -286,33 +285,39 @@ a.projeto:hover {
     margin-bottom: 10px;
 }
 
+/* Colunas mais largas que a versao so com nomes: agora cada item
+   carrega foto + nome lado a lado. */
 .grupo__lista {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 6px 20px;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 16px 20px;
 }
 
 .grupo__lista li {
     color: #dce3ec;
-    padding-left: 16px;
-    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    line-height: 1.35;
 }
 
-/* Marcador vermelho desenhado no CSS, em vez de bullet padrao */
-.grupo__lista li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 12px;
-    width: 6px;
-    height: 6px;
-    background-color: #c8102e;
+/* Foto recortada em circulo. O object-fit: cover preenche o circulo
+   sem distorcer o rosto, e o flex-shrink impede que a foto seja
+   espremida quando o nome e longo demais para a coluna. */
+.grupo__foto {
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
     border-radius: 50%;
+    object-fit: cover;
+    /* O anel vermelho substitui o antigo marcador de lista */
+    border: 2px solid #c8102e;
+    background-color: #060d20;
 }
 
-.grupo__lista--mentora li::before {
-    background-color: #2b5aa8;
+.grupo__lista--mentora .grupo__foto {
+    border-color: #2b5aa8;
 }
 
 

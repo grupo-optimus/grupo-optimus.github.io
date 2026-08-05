@@ -8,8 +8,8 @@
     <meta name="author" content="Grupo Optimus">
     <title>Grupo Optimus | Trabalhos do semestre</title>
 
-    <!-- Reaproveita o icone do primeiro projeto -->
-    <link rel="icon" href="cozinha-e-codigo/img/favicon.svg" type="image/svg+xml">
+    <!-- Copia local do icone: cada repositorio carrega os proprios arquivos -->
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 
     <!-- Folha de estilo externa: toda a estilizacao fica no style.css -->
     <link rel="stylesheet" href="style.css">
@@ -23,7 +23,8 @@
     <header class="cabecalho">
         <div class="container cabecalho__interno">
             <div class="logo">
-                <span class="logo__icone">&lt;/&gt;</span>
+                <img class="logo__icone" src="img/logo.svg"
+                     alt="Logo do Grupo Optimus">
                 <div class="logo__textos">
                     <span class="logo__nome">Optimus</span>
                     <span class="logo__slogan">UniAmérica &middot; Período 2</span>
@@ -112,17 +113,44 @@
              ============================================================ -->
         <section class="grupo">
             <h2>Quem faz parte</h2>
+
+            <!-- As fotos sao quadradas (300x300) e o CSS as recorta em circulo.
+                 O anel vermelho marca os integrantes; o azul, a mentora. -->
             <ul class="grupo__lista">
-                <li>André Luis Castelhano</li>
-                <li>Carlos Henrique da Silva Menger Neto</li>
-                <li>Cauê Vergopolan Hanzen</li>
-                <li>Guilherme da Cunha Bonetto</li>
-                <li>Pedro Pimentel Perdomo</li>
+                <li>
+                    <img class="grupo__foto" src="img/andre-castelhano.jpg"
+                         alt="Foto de André Luis Castelhano">
+                    <span>André Luis Castelhano</span>
+                </li>
+                <li>
+                    <img class="grupo__foto" src="img/carlos-menger.jpg"
+                         alt="Foto de Carlos Henrique da Silva Menger Neto">
+                    <span>Carlos Henrique da Silva Menger Neto</span>
+                </li>
+                <li>
+                    <img class="grupo__foto" src="img/caue-hanzen.jpg"
+                         alt="Foto de Cauê Vergopolan Hanzen">
+                    <span>Cauê Vergopolan Hanzen</span>
+                </li>
+                <li>
+                    <img class="grupo__foto" src="img/guilherme-bonetto.jpg"
+                         alt="Foto de Guilherme da Cunha Bonetto">
+                    <span>Guilherme da Cunha Bonetto</span>
+                </li>
+                <li>
+                    <img class="grupo__foto" src="img/pedro-perdomo.jpg"
+                         alt="Foto de Pedro Pimentel Perdomo">
+                    <span>Pedro Pimentel Perdomo</span>
+                </li>
             </ul>
 
             <h3>Mentora</h3>
             <ul class="grupo__lista grupo__lista--mentora">
-                <li>Zainab Ahmad Al Ghazaoui</li>
+                <li>
+                    <img class="grupo__foto" src="img/zainab-ghazaoui.jpg"
+                         alt="Foto de Zainab Ahmad Al Ghazaoui">
+                    <span>Zainab Ahmad Al Ghazaoui</span>
+                </li>
             </ul>
         </section>
 
