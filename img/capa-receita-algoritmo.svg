@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" width="960" height="480">
+    <title>Receita e algoritmo lado a lado</title>
+
+    <defs>
+        <linearGradient id="fundo" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#0e1b3f"/>
+            <stop offset="1" stop-color="#081128"/>
+        </linearGradient>
+        <pattern id="grade" width="32" height="32" patternUnits="userSpaceOnUse">
+            <circle cx="1.5" cy="1.5" r="1.5" fill="#ffffff" opacity="0.06"/>
+        </pattern>
+    </defs>
+
+    <!-- Fundo -->
+    <rect width="960" height="480" fill="url(#fundo)"/>
+    <rect width="960" height="480" fill="url(#grade)"/>
+
+    <text x="480" y="48" text-anchor="middle" font-family="Segoe UI, Tahoma, Arial, sans-serif"
+          font-size="14" font-weight="bold" letter-spacing="6" fill="#ff3b3b">COZINHA &amp; CÓDIGO</text>
+
+    <!-- ========== Cartao da receita ========== -->
+    <rect x="60" y="80" width="340" height="320" rx="14" fill="#f2efe6"/>
+    <rect x="60" y="80" width="340" height="54" rx="14" fill="#c8102e"/>
+    <rect x="60" y="110" width="340" height="24" fill="#c8102e"/>
+    <text x="88" y="114" font-family="Segoe UI, Tahoma, Arial, sans-serif" font-size="17"
+          font-weight="bold" letter-spacing="2" fill="#ffffff">RECEITA · BOLO</text>
+
+    <!-- Panela simples no canto do cabecalho -->
+    <rect x="336" y="98" width="34" height="20" rx="4" fill="#ffffff"/>
+    <rect x="330" y="94" width="46" height="6" rx="3" fill="#ffffff"/>
+    <rect x="352" y="82" width="3" height="10" rx="1.5" fill="#ffffff"/>
+    <rect x="362" y="84" width="3" height="8" rx="1.5" fill="#ffffff"/>
+
+    <g font-family="Segoe UI, Tahoma, Arial, sans-serif" font-size="17" fill="#1c2333">
+        <circle cx="92" cy="175" r="6" fill="#c8102e"/>
+        <text x="112" y="181">2 xíc. de farinha</text>
+
+        <circle cx="92" cy="213" r="6" fill="#c8102e"/>
+        <text x="112" y="219">3 ovos</text>
+
+        <circle cx="92" cy="251" r="6" fill="#c8102e"/>
+        <text x="112" y="257">1 xíc. de açúcar</text>
+
+        <circle cx="92" cy="289" r="6" fill="#c8102e"/>
+        <text x="112" y="295">200 g de chocolate</text>
+
+        <circle cx="92" cy="327" r="6" fill="#c8102e"/>
+        <text x="112" y="333">sal a gosto</text>
+    </g>
+
+    <line x1="88" y1="352" x2="372" y2="352" stroke="#d8d2c4" stroke-width="2"/>
+    <text x="88" y="378" font-family="Segoe UI, Tahoma, Arial, sans-serif" font-size="14"
+          font-style="italic" fill="#6b6559">mise en place = inicialização</text>
+
+    <!-- ========== Janela de codigo ========== -->
+    <rect x="560" y="80" width="340" height="320" rx="14" fill="#081128" stroke="#1b3a6b" stroke-width="2"/>
+    <rect x="560" y="80" width="340" height="54" rx="14" fill="#16305f"/>
+    <rect x="560" y="110" width="340" height="24" fill="#16305f"/>
+    <circle cx="586" cy="107" r="6" fill="#ff3b3b"/>
+    <circle cx="606" cy="107" r="6" fill="#ffd166"/>
+    <circle cx="626" cy="107" r="6" fill="#6fa8ff"/>
+    <text x="650" y="113" font-family="Consolas, Courier New, monospace" font-size="14"
+          fill="#8a97a8">bolo.js</text>
+
+    <!-- Numeros das linhas -->
+    <g font-family="Consolas, Courier New, monospace" font-size="15" fill="#4a5f8c" text-anchor="end">
+        <text x="600" y="181">1</text>
+        <text x="600" y="215">2</text>
+        <text x="600" y="249">3</text>
+        <text x="600" y="283">4</text>
+        <text x="600" y="317">5</text>
+        <text x="600" y="351">6</text>
+    </g>
+    <line x1="614" y1="150" x2="614" y2="370" stroke="#1b3a6b" stroke-width="1"/>
+
+    <!-- Codigo -->
+    <g font-family="Consolas, Courier New, monospace" font-size="16">
+        <text x="630" y="181">
+            <tspan fill="#6fa8ff">function</tspan><tspan fill="#c9d2dd"> </tspan><tspan fill="#ffd166">bolo</tspan><tspan fill="#c9d2dd">(ing) {</tspan>
+        </text>
+        <text x="646" y="215" fill="#c9d2dd"><tspan fill="#ff6b6b">misturar</tspan>(ing);</text>
+        <text x="646" y="249" fill="#c9d2dd"><tspan fill="#ff6b6b">assar</tspan>(180, 40);</text>
+        <text x="646" y="283" fill="#c9d2dd"><tspan fill="#ff6b6b">esfriar</tspan>();</text>
+        <text x="646" y="317" fill="#c9d2dd"><tspan fill="#6fa8ff">return</tspan> bolo;</text>
+        <text x="630" y="351" fill="#c9d2dd">}</text>
+    </g>
+
+    <!-- ========== Conector central ========== -->
+    <line x1="408" y1="240" x2="552" y2="240" stroke="#ff3b3b" stroke-width="2"
+          stroke-dasharray="8 8" opacity="0.55"/>
+    <circle cx="480" cy="240" r="34" fill="#c8102e"/>
+    <text x="480" y="253" text-anchor="middle" font-family="Segoe UI, Tahoma, Arial, sans-serif"
+          font-size="34" font-weight="bold" fill="#ffffff">=</text>
+
+    <!-- ========== Etapas na base ========== -->
+    <g font-family="Segoe UI, Tahoma, Arial, sans-serif" font-size="12" font-weight="bold"
+       letter-spacing="2" text-anchor="middle">
+        <rect x="175" y="424" width="170" height="40" rx="20" fill="#16305f" stroke="#1b3a6b" stroke-width="1"/>
+        <text x="260" y="449" fill="#c9d2dd">ENTRADA</text>
+
+        <text x="370" y="450" font-size="20" fill="#ff3b3b">→</text>
+
+        <rect x="395" y="424" width="170" height="40" rx="20" fill="#16305f" stroke="#1b3a6b" stroke-width="1"/>
+        <text x="480" y="449" fill="#c9d2dd">PASSOS</text>
+
+        <text x="590" y="450" font-size="20" fill="#ff3b3b">→</text>
+
+        <rect x="615" y="424" width="170" height="40" rx="20" fill="#16305f" stroke="#1b3a6b" stroke-width="1"/>
+        <text x="700" y="449" fill="#c9d2dd">SAÍDA</text>
+    </g>
+</svg>

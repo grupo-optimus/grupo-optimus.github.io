@@ -1,0 +1,564 @@
+/* ============================================================
+   Cozinha & Código - Folha de estilo principal
+   Tema: NOTURNO (escuro por padrao)
+
+   PALETA OPTIMUS PRIME - MODO NOTURNO
+   Superficies, da mais escura para a mais clara:
+   #060D20  fundo da pagina / faixa de creditos
+   #06102A  caixa de destaque (recuada)
+   #0E1B3F  azul Optimus - cabecalho, artigo e rodape
+   #16305F  blocos elevados - citacao, cartoes, fichas da equipe
+   #1F3D73  bordas e divisorias
+
+   Texto e acentos:
+   #FFFFFF  titulos
+   #DCE3EC  texto corrido
+   #B8C4D6  texto secundario
+   #95A3BA  legendas e metadados
+   #C8102E  vermelho de PREENCHIMENTO (faixas, aneis, bordas)
+   #FF5A5A  vermelho de TEXTO (links, hover, destaques)
+   #7FA6E8  azul claro - subtitulos e marcadores
+   #2B5AA8  azul medio - contraponto do vermelho
+
+   Organizacao do arquivo:
+   1. Reset e configuracoes globais
+   2. Container (centralizacao e largura maxima)
+   3. Cabecalho e menu
+   4. Artigo (titulos, textos, listas, citacoes)
+   5. Imagens e figuras
+   6. Blocos especiais (destaque, cartoes, equipe)
+   7. Rodape
+   8. Responsividade
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   1. RESET E CONFIGURACOES GLOBAIS
+   ------------------------------------------------------------ */
+
+/* Zera margens e paddings padrao do navegador e faz o padding
+   ser contado DENTRO da largura dos elementos (box-sizing). */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Avisa o navegador que a pagina e escura: assim as barras de
+   rolagem e os campos nativos tambem vem no tema noturno. */
+:root {
+    color-scheme: dark;
+}
+
+body {
+    /* Fonte legivel, com alternativas caso a primeira nao exista */
+    font-family: "Segoe UI", Tahoma, Verdana, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    /* Fundo azul quase preto e texto prata: alto contraste para leitura */
+    background-color: #060d20;
+    color: #dce3ec;
+}
+
+/* Estilo padrao dos links do site */
+a {
+    color: #ff5a5a;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff8a8a;
+    text-decoration: underline;
+}
+
+/* Trechos de codigo dentro do texto */
+code {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.9em;
+    background-color: #16305f;
+    color: #9fc3ff;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+
+/* ------------------------------------------------------------
+   2. CONTAINER: centraliza o conteudo e limita a largura
+   ------------------------------------------------------------ */
+
+.container {
+    max-width: 800px;   /* largura confortavel de leitura */
+    margin: 0 auto;     /* o "auto" nas laterais centraliza o bloco */
+    padding: 0 20px;    /* respiro para o conteudo nao colar na borda */
+}
+
+
+/* ------------------------------------------------------------
+   3. CABECALHO E MENU DE NAVEGACAO
+   ------------------------------------------------------------ */
+
+.cabecalho {
+    background-color: #0e1b3f;
+    color: #ffffff;
+    padding: 18px 0;
+    border-bottom: 4px solid #c8102e;
+}
+
+.cabecalho__interno {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+/* --- Logo --- */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo__icone {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #c8102e;
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+.logo__textos {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+}
+
+.logo__nome {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.logo__slogan {
+    font-size: 12px;
+    color: #95a3ba;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* --- Menu de navegacao --- */
+.menu__lista {
+    list-style: none;   /* tira os marcadores: e um menu, nao uma lista de leitura */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.menu__lista a {
+    color: #c9d2dd;
+    font-size: 15px;
+    font-weight: bold;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+}
+
+.menu__lista a:hover {
+    color: #ff5a5a;
+    border-bottom-color: #ff5a5a;
+    text-decoration: none;
+}
+
+
+/* ------------------------------------------------------------
+   4. ARTIGO
+   ------------------------------------------------------------ */
+
+/* No tema escuro a sombra quase nao aparece, entao quem separa o
+   artigo do fundo e a borda azul. */
+.artigo {
+    background-color: #0e1b3f;
+    border: 1px solid #1f3d73;
+    margin: 40px 0;
+    padding: 45px 50px;
+    border-radius: 10px;
+    box-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+}
+
+/* --- Cabecalho do artigo --- */
+.artigo__categoria {
+    display: inline-block;
+    background-color: #3d0c16;
+    color: #ff8a8a;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-size: 36px;
+    line-height: 1.25;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.artigo__resumo {
+    font-size: 19px;
+    color: #b8c4d6;
+    border-left: 4px solid #c8102e;
+    padding-left: 18px;
+    margin-bottom: 25px;
+}
+
+.artigo__meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 14px;
+    color: #95a3ba;
+    border-top: 1px solid #1f3d73;
+    border-bottom: 1px solid #1f3d73;
+    padding: 12px 0;
+    margin-bottom: 30px;
+}
+
+/* --- Titulos internos --- */
+h2 {
+    font-size: 27px;
+    color: #ffffff;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #1f3d73;
+}
+
+h3 {
+    font-size: 21px;
+    color: #7fa6e8;
+    margin-top: 28px;
+    margin-bottom: 10px;
+}
+
+h4 {
+    font-size: 18px;
+    color: #ffffff;
+    margin-top: 26px;
+    margin-bottom: 10px;
+}
+
+/* --- Paragrafos e secoes --- */
+p {
+    margin-bottom: 18px;
+    text-align: justify;
+}
+
+.secao {
+    margin-top: 45px;
+}
+
+/* --- Linha divisoria tematica: faixa vermelho -> azul --- */
+hr {
+    border: none;
+    height: 3px;
+    background: linear-gradient(90deg, #c8102e 0%, #2b5aa8 100%);
+    border-radius: 2px;
+    margin: 45px 0;
+}
+
+/* --- Citacao --- */
+.citacao {
+    background-color: #16305f;
+    border-left: 5px solid #c8102e;
+    padding: 22px 26px;
+    margin: 28px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.citacao p {
+    font-size: 19px;
+    font-style: italic;
+    color: #e6ecf5;
+    text-align: left;
+    margin-bottom: 8px;
+}
+
+.citacao cite {
+    font-size: 14px;
+    color: #95a3ba;
+}
+
+/* --- Listas do artigo --- */
+.lista-sinais,
+.lista-passos {
+    /* o padding empurra os marcadores para dentro do texto */
+    padding-left: 26px;
+    margin-bottom: 20px;
+}
+
+.lista-sinais li,
+.lista-passos li {
+    margin-bottom: 10px;
+}
+
+.lista-sinais li::marker {
+    color: #ff5a5a;
+}
+
+.lista-passos li::marker {
+    color: #7fa6e8;
+    font-weight: bold;
+}
+
+
+/* ------------------------------------------------------------
+   5. IMAGENS E FIGURAS
+   ------------------------------------------------------------ */
+
+.figura {
+    margin: 32px 0;
+}
+
+/* max-width: 100% faz a imagem encolher junto com a tela,
+   e height: auto mantem a proporcao original. */
+.figura img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+.figura figcaption {
+    font-size: 14px;
+    color: #95a3ba;
+    text-align: center;
+    font-style: italic;
+    margin-top: 10px;
+    padding: 0 10px;
+}
+
+
+/* ------------------------------------------------------------
+   6. BLOCOS ESPECIAIS
+   ------------------------------------------------------------ */
+
+/* --- Caixa de destaque: mais ESCURA que o artigo, parece recuada --- */
+.destaque {
+    background-color: #06102a;
+    color: #dce3ec;
+    padding: 26px 30px;
+    border-radius: 10px;
+    margin: 32px 0;
+    border-left: 5px solid #c8102e;
+}
+
+.destaque h4 {
+    color: #ff5a5a;
+    margin-top: 0;
+}
+
+.destaque p {
+    margin-bottom: 0;
+}
+
+/* --- Grade de dois cartoes lado a lado --- */
+.comparacao__grade {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.cartao {
+    flex: 1 1 200px;
+    background-color: #16305f;
+    border: 1px solid #1f3d73;
+    border-top: 4px solid #c8102e;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+/* O segundo cartao (o do algoritmo) recebe a faixa azul,
+   fechando o contraste vermelho/azul da dupla. */
+.cartao:last-child {
+    border-top-color: #2b5aa8;
+}
+
+.cartao h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.cartao p {
+    font-size: 15px;
+    text-align: left;
+    color: #b8c4d6;
+    margin-bottom: 12px;
+}
+
+/* --- Grupo Optimus (equipe) --- */
+.equipe__grade {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-bottom: 10px;
+}
+
+.equipe__card {
+    flex: 1 1 140px;
+    max-width: 180px;
+    background-color: #16305f;
+    border: 1px solid #1f3d73;
+    border-radius: 10px;
+    padding: 20px 14px;
+    text-align: center;
+}
+
+/* Foto do integrante recortada em circulo.
+   O object-fit: cover preenche o circulo sem distorcer o rosto. */
+.equipe__avatar {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 14px auto;
+    display: block;
+    border-radius: 50%;
+    border: 3px solid #c8102e;
+    object-fit: cover;
+    background-color: #060d20;
+}
+
+/* A mentora fica com o anel azul, os integrantes com o vermelho */
+.equipe__card--mentora .equipe__avatar {
+    border-color: #2b5aa8;
+}
+
+.equipe__nome {
+    font-size: 15px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.equipe__papel {
+    font-size: 13px;
+    color: #95a3ba;
+    text-align: center;
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+
+
+/* ------------------------------------------------------------
+   7. RODAPE
+   ------------------------------------------------------------ */
+
+.rodape {
+    background-color: #0e1b3f;
+    color: #c9d2dd;
+    padding: 45px 0 0 0;
+    margin-top: 50px;
+    border-top: 4px solid #c8102e;
+}
+
+.rodape__interno {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-bottom: 35px;
+}
+
+.rodape__coluna {
+    flex: 1 1 220px;
+}
+
+.rodape h5 {
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.rodape__identificacao {
+    font-size: 14px;
+    line-height: 1.8;
+    text-align: left;
+    margin-top: 14px;
+    margin-bottom: 0;
+}
+
+.rodape__redes {
+    list-style: none;
+    font-size: 14px;
+}
+
+.rodape__redes li {
+    margin-bottom: 8px;
+}
+
+.rodape__redes a {
+    color: #c9d2dd;
+}
+
+.rodape__redes a:hover {
+    color: #ff5a5a;
+    text-decoration: none;
+}
+
+.rodape__creditos {
+    background-color: #060d20;
+    text-align: center;
+    padding: 18px 20px;
+    font-size: 13px;
+    color: #8a97a8;
+}
+
+.rodape__creditos p {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+
+/* ------------------------------------------------------------
+   8. RESPONSIVIDADE: ajustes para telas pequenas (celular)
+   ------------------------------------------------------------ */
+
+@media (max-width: 600px) {
+
+    body {
+        font-size: 16px;
+    }
+
+    .cabecalho__interno {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu__lista {
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .artigo {
+        padding: 28px 22px;
+        margin: 25px 0;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    p {
+        text-align: left;   /* justificado fica ruim em tela estreita */
+    }
+}

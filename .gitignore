@@ -1,0 +1,15 @@
+# Lixo do Windows
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Configuracoes de editor
+.vscode/
+.idea/
+*.code-workspace
+
+# Arquivos temporarios
+*.tmp
+*.bak
+*~
