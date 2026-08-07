@@ -1,28 +1,16 @@
 /* ============================================================
-   Carrossel dos integrantes - Grupo Optimus
+   Carrossel dos integrantes
 
-   Mostra um integrante por vez, troca sozinho a cada 4 segundos
-   e responde as setas, as bolinhas, ao teclado e ao deslize do
-   dedo no celular.
-
-   O que mudou em relacao a versao do Cozinha & Codigo:
-   - a troca e uma transicao suave, nao um corte seco
-   - as bolinhas sao criadas sozinhas, uma por slide: para incluir
-     um integrante basta copiar o slide no HTML
-   - o giro automatico pausa com o mouse em cima, com o foco do
-     teclado dentro e quando a aba sai da frente
-   - os controles sao <button> com rotulo, em vez de onclick
-     escrito no meio do HTML
-   - quem configurou o sistema para menos animacao fica so no
-     controle manual
+   Mostra um integrante por vez e responde as setas, as bolinhas,
+   ao teclado e ao deslize do dedo. A troca em si e feita pelo
+   CSS: aqui so entra e sai a classe carrossel__slide--ativo.
    ============================================================ */
 
 
-/* Quanto tempo cada integrante fica na tela, em milissegundos */
+/* Tempo de cada integrante na tela, em milissegundos */
 const TEMPO_DE_TROCA = 4000;
 
-/* Distancia minima, em pixels, para um arrastar de dedo contar como
-   deslize - abaixo disso foi so um toque torto na tela */
+/* Arrastar menos que isso, em pixels, foi so um toque torto */
 const DISTANCIA_DO_DESLIZE = 40;
 
 const carrossel = document.querySelector(".carrossel");
@@ -37,8 +25,8 @@ let intervalo = null;
 let pausado = false;
 let inicioDoToque = null;
 
-/* Ajuste de acessibilidade do sistema operacional. Quando esta ligado,
-   o visitante pediu menos animacao - entao nada gira sozinho. */
+/* Ajuste de acessibilidade do sistema: quando ligado, o visitante
+   pediu menos animacao, entao nada gira sozinho */
 const preferMenosAnimacao =
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -47,8 +35,6 @@ iniciar();
 
 
 function iniciar() {
-    /* Sem carrossel na pagina, ou sem slides dentro dele, nao ha nada
-       a ligar - o resto do arquivo simplesmente nao roda */
     if (!carrossel || slides.length === 0) return;
 
     criarBolinhas();
@@ -57,23 +43,15 @@ function iniciar() {
     iniciarGiro();
 }
 
-
-/* ------------------------------------------------------------
-   TROCA DE SLIDE
-   ------------------------------------------------------------ */
-
-/* Marca um slide como ativo e apaga os outros. O resto - o fade - e
-   trabalho do CSS: aqui so entra e sai a classe --ativo. */
 function mostrarSlide(indice) {
-    /* O resto da divisao faz a volta: passou do ultimo, cai no primeiro;
-       passou do primeiro para tras, cai no ultimo. Somar slides.length
-       antes de dividir evita indice negativo. */
+    /* O resto da divisao faz a volta: passou do ultimo, cai no
+       primeiro; passou do primeiro para tras, cai no ultimo.
+       Somar slides.length antes de dividir evita indice negativo. */
     slideAtual = (indice + slides.length) % slides.length;
 
     slides.forEach(function (slide, i) {
         const ativo = (i === slideAtual);
         slide.classList.toggle("carrossel__slide--ativo", ativo);
-        /* Esconde de leitor de tela quem esta fora de vista */
         slide.setAttribute("aria-hidden", ativo ? "false" : "true");
     });
 
@@ -99,15 +77,8 @@ function anterior() {
     irPara(slideAtual - 1);
 }
 
-
-/* ------------------------------------------------------------
-   BOLINHAS
-
-   Uma por slide, criadas aqui em vez de escritas no HTML: assim o
-   HTML nao precisa saber quantos integrantes existem, e ninguem
-   esquece de acrescentar a bolinha ao incluir alguem no grupo.
-   ------------------------------------------------------------ */
-
+/* Uma bolinha por slide, criadas aqui e nao escritas no HTML: assim
+   ninguem esquece de acrescentar a bolinha ao incluir um integrante */
 function criarBolinhas() {
     slides.forEach(function (slide, i) {
         const nome = slide.querySelector(".carrossel__nome").textContent.trim();
@@ -127,11 +98,6 @@ function criarBolinhas() {
     });
 }
 
-
-/* ------------------------------------------------------------
-   CONTROLES
-   ------------------------------------------------------------ */
-
 function ligarControles() {
     carrossel.querySelector(".carrossel__seta--anterior")
         .addEventListener("click", anterior);
@@ -139,9 +105,9 @@ function ligarControles() {
     carrossel.querySelector(".carrossel__seta--proximo")
         .addEventListener("click", proximo);
 
-    /* Setas do teclado. O evento so chega aqui quando o foco esta em
-       algum botao de dentro do carrossel, entao as setas continuam
-       rolando a pagina normalmente no resto do site. */
+    /* O evento so chega aqui quando o foco esta em algum botao de
+       dentro do carrossel, entao as setas continuam rolando a pagina
+       normalmente no resto do site */
     carrossel.addEventListener("keydown", function (evento) {
         if (evento.key === "ArrowLeft") {
             evento.preventDefault();
@@ -153,7 +119,6 @@ function ligarControles() {
         }
     });
 
-    /* Pausa enquanto o visitante esta olhando ou mexendo */
     carrossel.addEventListener("mouseenter", pausar);
     carrossel.addEventListener("mouseleave", retomar);
     carrossel.addEventListener("focusin", pausar);
@@ -171,11 +136,11 @@ function ligarControles() {
     ligarDeslize();
 }
 
-/* Deslize do dedo no celular. O passive: true avisa o navegador que
-   nao vamos bloquear a rolagem, entao ele nao precisa esperar por nos. */
 function ligarDeslize() {
     const trilho = carrossel.querySelector(".carrossel__slides");
 
+    /* O passive: true avisa o navegador que nao vamos bloquear a
+       rolagem, entao ele nao precisa esperar por nos */
     trilho.addEventListener("touchstart", function (evento) {
         inicioDoToque = evento.changedTouches[0].clientX;
     }, { passive: true });
@@ -193,11 +158,6 @@ function ligarDeslize() {
         else anterior();
     }, { passive: true });
 }
-
-
-/* ------------------------------------------------------------
-   GIRO AUTOMATICO
-   ------------------------------------------------------------ */
 
 function iniciarGiro() {
     if (preferMenosAnimacao) return;
@@ -226,6 +186,12 @@ function pausar() {
 }
 
 function retomar() {
+    /* Mouse e teclado pausam pelo mesmo caminho, entao so volta a
+       girar quando nenhum dos dois esta mais dentro do carrossel -
+       senao tirar o foco retomaria o giro com o mouse ainda em cima */
+    if (carrossel.matches(":hover")) return;
+    if (carrossel.contains(document.activeElement)) return;
+
     pausado = false;
     iniciarGiro();
 }

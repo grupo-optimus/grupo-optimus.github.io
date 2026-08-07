@@ -8,18 +8,14 @@
     <meta name="author" content="Grupo Optimus">
     <title>Grupo Optimus | Trabalhos do semestre</title>
 
-    <!-- Copia local do icone: cada repositorio carrega os proprios arquivos -->
+    <!-- Copia local: cada repositorio do grupo carrega os proprios arquivos -->
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 
-    <!-- Folha de estilo externa: toda a estilizacao fica no style.css -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- ============================================================
-         TOPO: identidade do grupo
-         ============================================================ -->
     <header class="cabecalho">
         <div class="container cabecalho__interno">
 
@@ -47,9 +43,6 @@
 
     <main class="container">
 
-        <!-- ============================================================
-             APRESENTACAO
-             ============================================================ -->
         <section class="intro" id="inicio">
             <h1>Trabalhos do semestre</h1>
             <p>
@@ -58,29 +51,13 @@
             </p>
         </section>
 
-        <!-- ============================================================
-             TRABALHOS, AGRUPADOS POR CATEGORIA
+        <!-- PARA ADICIONAR UM TRABALHO: copie um bloco <a class="projeto">
+             inteiro e troque o href, o titulo e a descricao.
 
-             Sao tres categorias fixas, nesta ordem:
-             1. Projeto Mensal
-             2. Projeto Integrador de Extensao II
-             3. Atividades
-
-             Cada uma e uma <section class="categoria"> com quantos cartoes
-             forem necessarios dentro da <div class="projetos">.
-
-             PARA ADICIONAR UM TRABALHO:
-             copie um bloco <a class="projeto"> inteiro e troque tres coisas -
-             o href, o titulo e a descricao.
-
-             O href e o NOME DO REPOSITORIO do trabalho, com barra na frente
-             e no fim: /cozinha-e-codigo/. Cada trabalho mora no seu proprio
-             repositorio dentro da organizacao grupo-optimus, e o GitHub Pages
-             publica todos sob o mesmo dominio.
-
-             A etiqueta e opcional: sirva-se dela para a materia
-             (<span class="projeto__etiqueta">Algoritmos</span>) ou apague.
-             ============================================================ -->
+             Cada trabalho mora no seu proprio repositorio dentro da
+             organizacao grupo-optimus, e o GitHub Pages publica todos sob o
+             mesmo dominio - por isso o href e o nome do repositorio, com
+             barra na frente e no fim: /cozinha-e-codigo/. -->
 
         <section class="categoria" id="mensal">
             <h2 class="categoria__titulo">Projeto Mensal</h2>
@@ -138,9 +115,6 @@
             </div>
         </section>
 
-        <!-- ============================================================
-             INTEGRANTES
-             ============================================================ -->
         <section class="grupo" id="grupo">
             <h2>Quem faz parte</h2>
             <p class="grupo__legenda">
@@ -148,17 +122,14 @@
                 as bolinhas ou as teclas &larr; e &rarr; para percorrer a equipe.
             </p>
 
-            <!-- CARROSSEL DOS INTEGRANTES
+            <!-- PARA INCLUIR ALGUEM: copie um bloco <article class="carrossel__slide">
+                 inteiro e troque a foto, o nome e o papel. A bolinha correspondente
+                 e criada sozinha pelo JavaScript.
 
                  As fotos sao quadradas (300x300) e o CSS as recorta em circulo.
-                 O anel vermelho marca os integrantes; o azul, a mentora.
 
-                 PARA INCLUIR ALGUEM: copie um bloco <article class="carrossel__slide">
-                 inteiro e troque a foto, o nome e o papel. A bolinha correspondente
-                 e criada sozinha pelo JavaScript, nao ha nada a acrescentar aqui.
-
-                 ATENCAO: so o primeiro slide leva a classe carrossel__slide--ativo.
-                 Ela e o que deixa o slide visivel - se o JavaScript nao carregar,
+                 ATENCAO: so o primeiro slide leva a classe carrossel__slide--ativo,
+                 que e o que deixa um slide visivel. Se o JavaScript nao carregar,
                  e esse integrante que fica na tela, em vez de a secao ficar vazia. -->
             <div class="carrossel">
 
@@ -205,6 +176,8 @@
                             <p class="carrossel__papel">Dev</p>
                         </article>
 
+                        <!-- A mentora leva --mentora, que troca o anel da foto
+                             de vermelho para azul -->
                         <article class="carrossel__slide carrossel__slide--mentora">
                             <img class="carrossel__foto" src="img/zainab-ghazaoui.jpg"
                                  alt="Foto de Zainab Ahmad Al Ghazaoui">
@@ -233,8 +206,8 @@
         </div>
     </footer>
 
-    <!-- Carregado no fim do body: assim o HTML do carrossel ja existe
-         quando o script procura por ele -->
+    <!-- No fim do body: assim o HTML do carrossel ja existe quando o
+         script procura por ele -->
     <script src="js/carrossel.js"></script>
 
 </body>

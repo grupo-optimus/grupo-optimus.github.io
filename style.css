@@ -1,36 +1,13 @@
 /* ============================================================
-   Grupo Optimus - Portfolio (pagina inicial)
+   Grupo Optimus - portfolio
 
-   Usa a mesma PALETA OPTIMUS PRIME do projeto Cozinha & Codigo,
-   para que as duas paginas pareçam o mesmo site.
-
-   #060D20  fundo da pagina
-   #0E1B3F  azul Optimus - cabecalho e rodape
-   #16305F  blocos elevados - cartoes de projeto
-   #1F3D73  bordas e divisorias
-   #FFFFFF  titulos
-   #DCE3EC  texto corrido
-   #B8C4D6  texto secundario
-   #95A3BA  legendas e metadados
-   #C8102E  vermelho de preenchimento
-   #FF5A5A  vermelho de texto
-   #7FA6E8  azul claro - subtitulos e etiquetas
-
-   Organizacao do arquivo:
-   1. Reset e configuracoes globais
-   2. Container
-   3. Cabecalho
-   4. Apresentacao
-   5. Grade de projetos
-   6. Integrantes (carrossel)
-   7. Rodape
-   8. Responsividade
+   Paleta, a mesma do Cozinha & Codigo para as duas paginas
+   parecerem o mesmo site:
+   #060D20 fundo    #0E1B3F faixas     #16305F cartoes
+   #1F3D73 bordas   #C8102E vermelho   #7FA6E8 etiquetas
+   #FFFFFF titulos  #DCE3EC texto      #95A3BA legendas
    ============================================================ */
 
-
-/* ------------------------------------------------------------
-   1. RESET E CONFIGURACOES GLOBAIS
-   ------------------------------------------------------------ */
 
 * {
     margin: 0;
@@ -38,7 +15,8 @@
     box-sizing: border-box;
 }
 
-/* Avisa o navegador que a pagina e escura */
+/* Avisa o navegador que a pagina e escura, para ele desenhar
+   barras de rolagem e campos de formulario no tom certo */
 :root {
     color-scheme: dark;
 }
@@ -61,11 +39,6 @@ a:hover {
 }
 
 
-/* ------------------------------------------------------------
-   2. CONTAINER
-   Centraliza o conteudo e limita a largura para nao cansar a leitura
-   ------------------------------------------------------------ */
-
 .container {
     width: 100%;
     max-width: 800px;
@@ -75,23 +48,16 @@ a:hover {
 
 
 /* ------------------------------------------------------------
-   3. CABECALHO
-
-   Identico ao cabecalho do Cozinha & Codigo - mesma altura, mesma
-   faixa vermelha, mesmos tamanhos de logo e menu - para que as duas
-   paginas pareçam a mesma barra ao navegar de uma para a outra.
+   CABECALHO
    ------------------------------------------------------------ */
 
 .cabecalho {
     background-color: #0e1b3f;
     color: #ffffff;
     padding: 18px 0;
-    /* Faixa vermelha na base, marca visual do tema Optimus */
     border-bottom: 4px solid #c8102e;
 }
 
-/* Logo na esquerda, menu na direita. O flex-wrap deixa o menu cair
-   para a linha de baixo quando nao couber ao lado da logo. */
 .cabecalho__interno {
     display: flex;
     flex-wrap: wrap;
@@ -106,10 +72,8 @@ a:hover {
     gap: 12px;
 }
 
-/* Agora e a logo em SVG, nao mais o texto </> num quadrado vermelho.
-   O SVG ja traz o proprio fundo e contorno, entao aqui so se define
-   o tamanho. display: block tira o espaco fantasma que o navegador
-   reserva embaixo de imagens em linha e desalinharia o nome ao lado. */
+/* O display: block tira o espaco fantasma que o navegador reserva
+   embaixo de imagens em linha, que desalinharia o nome ao lado */
 .logo__icone {
     display: block;
     width: 44px;
@@ -128,8 +92,7 @@ a:hover {
     letter-spacing: 0.5px;
 }
 
-/* Nesta pagina o nome e um <span>, mas a regra fica aqui para o caso
-   de virar link algum dia - e para o CSS bater com o da outra pagina. */
+/* O nome e um link, mas nao deve ficar vermelho como os demais */
 a.logo__nome {
     color: inherit;
     align-self: flex-start;
@@ -160,7 +123,7 @@ a.logo__nome:hover {
     font-weight: bold;
     padding-bottom: 4px;
     /* Borda transparente ja no repouso: reserva o espaco e evita
-       que o texto pule quando a linha vermelha aparece no hover. */
+       que o texto pule quando a linha vermelha aparece no hover */
     border-bottom: 2px solid transparent;
 }
 
@@ -172,7 +135,7 @@ a.logo__nome:hover {
 
 
 /* ------------------------------------------------------------
-   4. APRESENTACAO
+   APRESENTACAO
    ------------------------------------------------------------ */
 
 .intro {
@@ -197,13 +160,7 @@ a.logo__nome:hover {
 
 
 /* ------------------------------------------------------------
-   5. CATEGORIAS E GRADE DE PROJETOS
-
-   Cada categoria (Projeto Mensal, Projeto Integrador de Extensao II
-   e Atividades) e uma faixa com titulo proprio; os trabalhos daquela
-   categoria ficam numa grade abaixo. auto-fit + minmax faz os cartoes
-   se reorganizarem sozinhos conforme a largura da tela, sem precisar
-   de media query - 1, 2 ou 5 trabalhos na categoria, tanto faz.
+   CATEGORIAS E GRADE DE PROJETOS
    ------------------------------------------------------------ */
 
 .categoria {
@@ -217,7 +174,6 @@ a.logo__nome:hover {
     letter-spacing: 1.5px;
     margin-bottom: 16px;
     padding-bottom: 10px;
-    /* Divisoria fina abaixo do nome da categoria, separando as faixas */
     border-bottom: 1px solid #1f3d73;
 }
 
@@ -232,6 +188,8 @@ a.logo__nome:hover {
     margin-right: 10px;
 }
 
+/* O auto-fit + minmax reorganiza os cartoes sozinho conforme a
+   largura da tela: 1, 2 ou 5 trabalhos na categoria, tanto faz */
 .projetos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -245,11 +203,10 @@ a.logo__nome:hover {
     border: 1px solid #1f3d73;
     border-radius: 10px;
     padding: 26px;
-    /* Transicao curta so na borda e no deslocamento: barato para o navegador */
     transition: transform 0.15s ease, border-color 0.15s ease;
 }
 
-/* O cartao inteiro e clicavel, entao o texto nao herda a cor de link */
+/* O cartao inteiro e clicavel, entao o texto nao herda cor de link */
 a.projeto {
     color: #dce3ec;
 }
@@ -279,8 +236,8 @@ a.projeto:hover {
 .projeto__texto {
     color: #b8c4d6;
     font-size: 16px;
-    /* Empurra a chamada de acao para a base do cartao,
-       deixando todos os cartoes alinhados */
+    /* Empurra a chamada de acao para a base, deixando o rodape de
+       todos os cartoes da linha na mesma altura */
     flex-grow: 1;
 }
 
@@ -307,13 +264,11 @@ a.projeto:hover {
 
 
 /* ------------------------------------------------------------
-   6. INTEGRANTES (CARROSSEL)
+   INTEGRANTES (CARROSSEL)
 
-   Um integrante por vez, num cartao igual aos da grade de projetos.
-   Os slides ficam empilhados no mesmo lugar (position: absolute) e
-   so o que tem a classe --ativo aparece; a troca e uma transicao de
-   opacidade, nao um corte seco. Quem poe e tira a classe --ativo e
-   o js/carrossel.js.
+   Os slides ficam empilhados no mesmo lugar e so o que tem a
+   classe --ativo aparece. Quem poe e tira essa classe e o
+   js/carrossel.js.
    ------------------------------------------------------------ */
 
 .grupo {
@@ -336,26 +291,22 @@ a.projeto:hover {
     margin-bottom: 24px;
 }
 
-
-/* Area toda do carrossel, centralizada e estreita: um cartao largo
-   demais deixaria a foto perdida no meio de muito vazio. */
 .carrossel {
     max-width: 460px;
     margin: 0 auto;
 }
 
-/* Setas nas laterais e os slides no meio. O align-items: center segura
-   as setas na altura do meio do cartao sem posicionamento absoluto -
-   se o cartao mudar de altura, elas acompanham sozinhas. */
+/* O align-items: center segura as setas na altura do meio do
+   cartao sem posicionamento absoluto: se o cartao mudar de
+   altura, elas acompanham sozinhas */
 .carrossel__palco {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-/* Trilho onde os slides se sobrepoem. Como todos eles sao absolutos,
-   nenhum ocupa espaco de verdade: sem esta altura minima a area
-   colapsaria para zero e nada apareceria. */
+/* Como todos os slides sao absolutos, nenhum ocupa espaco de
+   verdade: sem esta altura minima a area colapsaria para zero */
 .carrossel__slides {
     position: relative;
     flex: 1;
@@ -374,15 +325,14 @@ a.projeto:hover {
     align-items: center;
     justify-content: center;
 
-    /* Mesmo cartao dos projetos, para a pagina parecer uma coisa so */
     background-color: #16305f;
     border: 1px solid #1f3d73;
     border-radius: 10px;
     padding: 24px 18px;
 
     /* Fora de vista: invisivel e sem receber clique nem foco. A
-       visibility entra na transicao para so desligar no fim do fade;
-       se mudasse na hora, o slide sumiria de uma vez. */
+       visibility entra na transicao para so desligar no fim do
+       fade; se mudasse na hora, o slide sumiria de uma vez. */
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.45s ease, visibility 0.45s;
@@ -393,8 +343,7 @@ a.projeto:hover {
     visibility: visible;
 }
 
-/* Foto recortada em circulo. O object-fit: cover preenche o circulo
-   sem distorcer o rosto. */
+/* O object-fit: cover preenche o circulo sem distorcer o rosto */
 .carrossel__foto {
     width: 104px;
     height: 104px;
@@ -418,7 +367,6 @@ a.projeto:hover {
     text-align: center;
 }
 
-/* Mesma etiqueta azul das materias nos cartoes de projeto */
 .carrossel__papel {
     color: #7fa6e8;
     font-size: 12px;
@@ -428,8 +376,8 @@ a.projeto:hover {
     margin-top: 8px;
 }
 
-/* Setas: sao <button> de verdade, entao e preciso zerar a aparencia
-   que o navegador da a botoes antes de desenhar a nossa. */
+/* Sao <button> de verdade, entao e preciso zerar a aparencia que
+   o navegador da a botoes antes de desenhar a nossa */
 .carrossel__seta {
     flex-shrink: 0;
     width: 38px;
@@ -480,16 +428,15 @@ a.projeto:hover {
     background-color: #c8102e;
 }
 
-/* Contorno visivel para quem navega pelo teclado. O focus-visible so
-   aparece no Tab, nao no clique do mouse. */
+/* O focus-visible so aparece na navegacao por Tab, nao no clique */
 .carrossel__seta:focus-visible,
 .carrossel__bolinha:focus-visible {
     outline: 2px solid #7fa6e8;
     outline-offset: 2px;
 }
 
-/* Quem configurou o sistema para menos animacao ve as trocas secas.
-   O giro automatico tambem nao liga - isso fica no carrossel.js. */
+/* Quem pediu menos animacao ve as trocas secas. O giro automatico
+   tambem nao liga - essa parte fica no js/carrossel.js. */
 @media (prefers-reduced-motion: reduce) {
 
     .carrossel__slide,
@@ -501,7 +448,7 @@ a.projeto:hover {
 
 
 /* ------------------------------------------------------------
-   7. RODAPE
+   RODAPE
    ------------------------------------------------------------ */
 
 .rodape {
@@ -518,8 +465,7 @@ a.projeto:hover {
 
 
 /* ------------------------------------------------------------
-   8. RESPONSIVIDADE
-   Ajustes para telas estreitas (celular)
+   RESPONSIVIDADE (celular)
    ------------------------------------------------------------ */
 
 @media (max-width: 600px) {
@@ -528,8 +474,6 @@ a.projeto:hover {
         font-size: 16px;
     }
 
-    /* No celular a logo fica em cima e o menu embaixo, os dois centralizados,
-       exatamente como no cabecalho do Cozinha & Codigo. */
     .cabecalho__interno {
         flex-direction: column;
         text-align: center;
@@ -552,14 +496,13 @@ a.projeto:hover {
         padding: 22px;
     }
 
-    /* Cartao mais estreito faz os nomes longos quebrarem em mais
-       linhas, entao a foto encolhe e a altura minima sobe um pouco
-       para o texto nao encostar na borda */
     .carrossel__foto {
         width: 88px;
         height: 88px;
     }
 
+    /* Cartao mais estreito faz os nomes longos quebrarem em duas
+       linhas, entao a altura minima sobe junto */
     .carrossel__slides {
         min-height: 274px;
     }
