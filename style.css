@@ -351,6 +351,90 @@ a.projeto:hover {
 
 
 /* ------------------------------------------------------------
+   INTEGRANTES EM GRADE (pagina inicial)
+
+   Na home todos aparecem de uma vez, porque cada um tem links
+   proprios e esconder cinco atras de um carrossel esconderia os
+   contatos junto. Nas paginas de periodo o mesmo cartao aparece
+   em carrossel: la o que importa e quem fazia parte no semestre.
+   ------------------------------------------------------------ */
+
+.integrantes {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.integrante {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    background-color: #16305f;
+    border: 1px solid #1f3d73;
+    border-radius: 10px;
+    padding: 26px 18px;
+}
+
+.integrante__foto {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #c8102e;
+    background-color: #060d20;
+    margin-bottom: 16px;
+}
+
+.integrante--mentora .integrante__foto {
+    border-color: #2b5aa8;
+}
+
+.integrante__nome {
+    color: #ffffff;
+    font-size: 17px;
+    line-height: 1.35;
+}
+
+.integrante__papel {
+    color: #7fa6e8;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 8px;
+}
+
+/* Uma frase por pessoa, quando houver */
+.integrante__frase {
+    color: #b8c4d6;
+    font-size: 15px;
+    margin-top: 12px;
+}
+
+/* O margin-top: auto joga os links para a base do cartao. Sem ele, um
+   nome que quebra em duas linhas empurra os links para baixo e eles
+   deixam de bater com os dos cartoes vizinhos. O espaco minimo fica
+   no padding, porque a margem aqui esta ocupada empurrando. */
+.integrante__redes {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 16px;
+    margin-top: auto;
+    padding-top: 16px;
+}
+
+.integrante__redes a {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* ------------------------------------------------------------
    PRATELEIRA DE ATIVIDADES
 
    Carrossel horizontal para quando ha trabalhos demais para uma
