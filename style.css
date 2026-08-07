@@ -22,7 +22,7 @@
    3. Cabecalho
    4. Apresentacao
    5. Grade de projetos
-   6. Integrantes
+   6. Integrantes (carrossel)
    7. Rodape
    8. Responsividade
    ============================================================ */
@@ -307,7 +307,13 @@ a.projeto:hover {
 
 
 /* ------------------------------------------------------------
-   6. INTEGRANTES
+   6. INTEGRANTES (CARROSSEL)
+
+   Um integrante por vez, num cartao igual aos da grade de projetos.
+   Os slides ficam empilhados no mesmo lugar (position: absolute) e
+   so o que tem a classe --ativo aparece; a troca e uma transicao de
+   opacidade, nao um corte seco. Quem poe e tira a classe --ativo e
+   o js/carrossel.js.
    ------------------------------------------------------------ */
 
 .grupo {
@@ -324,48 +330,173 @@ a.projeto:hover {
     margin-bottom: 14px;
 }
 
-.grupo h3 {
-    color: #7fa6e8;
-    font-size: 15px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 24px;
-    margin-bottom: 10px;
+.grupo__legenda {
+    color: #b8c4d6;
+    font-size: 16px;
+    margin-bottom: 24px;
 }
 
-/* Colunas mais largas que a versao so com nomes: agora cada item
-   carrega foto + nome lado a lado. */
-.grupo__lista {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-    gap: 16px 20px;
+
+/* Area toda do carrossel, centralizada e estreita: um cartao largo
+   demais deixaria a foto perdida no meio de muito vazio. */
+.carrossel {
+    max-width: 460px;
+    margin: 0 auto;
 }
 
-.grupo__lista li {
-    color: #dce3ec;
+/* Setas nas laterais e os slides no meio. O align-items: center segura
+   as setas na altura do meio do cartao sem posicionamento absoluto -
+   se o cartao mudar de altura, elas acompanham sozinhas. */
+.carrossel__palco {
     display: flex;
     align-items: center;
-    gap: 12px;
-    line-height: 1.35;
+    gap: 8px;
+}
+
+/* Trilho onde os slides se sobrepoem. Como todos eles sao absolutos,
+   nenhum ocupa espaco de verdade: sem esta altura minima a area
+   colapsaria para zero e nada apareceria. */
+.carrossel__slides {
+    position: relative;
+    flex: 1;
+    min-height: 268px;
+}
+
+.carrossel__slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* Mesmo cartao dos projetos, para a pagina parecer uma coisa so */
+    background-color: #16305f;
+    border: 1px solid #1f3d73;
+    border-radius: 10px;
+    padding: 24px 18px;
+
+    /* Fora de vista: invisivel e sem receber clique nem foco. A
+       visibility entra na transicao para so desligar no fim do fade;
+       se mudasse na hora, o slide sumiria de uma vez. */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.45s ease, visibility 0.45s;
+}
+
+.carrossel__slide--ativo {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* Foto recortada em circulo. O object-fit: cover preenche o circulo
-   sem distorcer o rosto, e o flex-shrink impede que a foto seja
-   espremida quando o nome e longo demais para a coluna. */
-.grupo__foto {
-    width: 46px;
-    height: 46px;
-    flex-shrink: 0;
+   sem distorcer o rosto. */
+.carrossel__foto {
+    width: 104px;
+    height: 104px;
     border-radius: 50%;
     object-fit: cover;
-    /* O anel vermelho substitui o antigo marcador de lista */
-    border: 2px solid #c8102e;
+    border: 3px solid #c8102e;
     background-color: #060d20;
+    margin-bottom: 16px;
 }
 
-.grupo__lista--mentora .grupo__foto {
+/* Anel azul para a mentora, mesma convencao do Cozinha & Codigo */
+.carrossel__slide--mentora .carrossel__foto {
     border-color: #2b5aa8;
+}
+
+.carrossel__nome {
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 1.35;
+    text-align: center;
+}
+
+/* Mesma etiqueta azul das materias nos cartoes de projeto */
+.carrossel__papel {
+    color: #7fa6e8;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 8px;
+}
+
+/* Setas: sao <button> de verdade, entao e preciso zerar a aparencia
+   que o navegador da a botoes antes de desenhar a nossa. */
+.carrossel__seta {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border: 1px solid #1f3d73;
+    border-radius: 50%;
+    background-color: #0e1b3f;
+    color: #dce3ec;
+    font-size: 17px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.carrossel__seta:hover {
+    background-color: #c8102e;
+    border-color: #c8102e;
+    color: #ffffff;
+}
+
+.carrossel__bolinhas {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.carrossel__bolinha {
+    flex-shrink: 0;
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: #1f3d73;
+    cursor: pointer;
+    transition: background-color 0.2s ease, width 0.2s ease;
+}
+
+.carrossel__bolinha:hover {
+    background-color: #7fa6e8;
+}
+
+/* A bolinha do slide atual estica e vira um tracinho vermelho */
+.carrossel__bolinha--ativa {
+    width: 24px;
+    border-radius: 5px;
+    background-color: #c8102e;
+}
+
+/* Contorno visivel para quem navega pelo teclado. O focus-visible so
+   aparece no Tab, nao no clique do mouse. */
+.carrossel__seta:focus-visible,
+.carrossel__bolinha:focus-visible {
+    outline: 2px solid #7fa6e8;
+    outline-offset: 2px;
+}
+
+/* Quem configurou o sistema para menos animacao ve as trocas secas.
+   O giro automatico tambem nao liga - isso fica no carrossel.js. */
+@media (prefers-reduced-motion: reduce) {
+
+    .carrossel__slide,
+    .carrossel__seta,
+    .carrossel__bolinha {
+        transition: none;
+    }
 }
 
 
@@ -419,5 +550,23 @@ a.projeto:hover {
 
     .grupo {
         padding: 22px;
+    }
+
+    /* Cartao mais estreito faz os nomes longos quebrarem em mais
+       linhas, entao a foto encolhe e a altura minima sobe um pouco
+       para o texto nao encostar na borda */
+    .carrossel__foto {
+        width: 88px;
+        height: 88px;
+    }
+
+    .carrossel__slides {
+        min-height: 274px;
+    }
+
+    .carrossel__seta {
+        width: 34px;
+        height: 34px;
+        font-size: 15px;
     }
 }

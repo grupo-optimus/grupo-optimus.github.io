@@ -143,45 +143,86 @@
              ============================================================ -->
         <section class="grupo" id="grupo">
             <h2>Quem faz parte</h2>
+            <p class="grupo__legenda">
+                Seis pessoas por trás dos trabalhos deste acervo. Use as setas,
+                as bolinhas ou as teclas &larr; e &rarr; para percorrer a equipe.
+            </p>
 
-            <!-- As fotos sao quadradas (300x300) e o CSS as recorta em circulo.
-                 O anel vermelho marca os integrantes; o azul, a mentora. -->
-            <ul class="grupo__lista">
-                <li>
-                    <img class="grupo__foto" src="img/andre-castelhano.jpg"
-                         alt="Foto de André Luis Castelhano">
-                    <span>André Luis Castelhano</span>
-                </li>
-                <li>
-                    <img class="grupo__foto" src="img/carlos-menger.jpg"
-                         alt="Foto de Carlos Henrique da Silva Menger Neto">
-                    <span>Carlos Henrique da Silva Menger Neto</span>
-                </li>
-                <li>
-                    <img class="grupo__foto" src="img/caue-hanzen.jpg"
-                         alt="Foto de Cauê Vergopolan Hanzen">
-                    <span>Cauê Vergopolan Hanzen</span>
-                </li>
-                <li>
-                    <img class="grupo__foto" src="img/guilherme-bonetto.jpg"
-                         alt="Foto de Guilherme da Cunha Bonetto">
-                    <span>Guilherme da Cunha Bonetto</span>
-                </li>
-                <li>
-                    <img class="grupo__foto" src="img/pedro-perdomo.jpg"
-                         alt="Foto de Pedro Pimentel Perdomo">
-                    <span>Pedro Pimentel Perdomo</span>
-                </li>
-            </ul>
+            <!-- CARROSSEL DOS INTEGRANTES
 
-            <h3>Mentora</h3>
-            <ul class="grupo__lista grupo__lista--mentora">
-                <li>
-                    <img class="grupo__foto" src="img/zainab-ghazaoui.jpg"
-                         alt="Foto de Zainab Ahmad Al Ghazaoui">
-                    <span>Zainab Ahmad Al Ghazaoui</span>
-                </li>
-            </ul>
+                 As fotos sao quadradas (300x300) e o CSS as recorta em circulo.
+                 O anel vermelho marca os integrantes; o azul, a mentora.
+
+                 PARA INCLUIR ALGUEM: copie um bloco <article class="carrossel__slide">
+                 inteiro e troque a foto, o nome e o papel. A bolinha correspondente
+                 e criada sozinha pelo JavaScript, nao ha nada a acrescentar aqui.
+
+                 ATENCAO: so o primeiro slide leva a classe carrossel__slide--ativo.
+                 Ela e o que deixa o slide visivel - se o JavaScript nao carregar,
+                 e esse integrante que fica na tela, em vez de a secao ficar vazia. -->
+            <div class="carrossel">
+
+                <div class="carrossel__palco">
+
+                    <button class="carrossel__seta carrossel__seta--anterior" type="button"
+                            aria-label="Integrante anterior">&#10094;</button>
+
+                    <!-- aria-live avisa o leitor de tela quando o slide troca -->
+                    <div class="carrossel__slides" aria-live="polite">
+
+                        <article class="carrossel__slide carrossel__slide--ativo">
+                            <img class="carrossel__foto" src="img/caue-hanzen.jpg"
+                                 alt="Foto de Cauê Vergopolan Hanzen">
+                            <p class="carrossel__nome">Cauê Vergopolan Hanzen</p>
+                            <p class="carrossel__papel">Scrum Master</p>
+                        </article>
+
+                        <article class="carrossel__slide">
+                            <img class="carrossel__foto" src="img/andre-castelhano.jpg"
+                                 alt="Foto de André Luis Castelhano">
+                            <p class="carrossel__nome">André Luis Castelhano</p>
+                            <p class="carrossel__papel">Product Owner</p>
+                        </article>
+
+                        <article class="carrossel__slide">
+                            <img class="carrossel__foto" src="img/carlos-menger.jpg"
+                                 alt="Foto de Carlos Henrique da Silva Menger Neto">
+                            <p class="carrossel__nome">Carlos Henrique da Silva Menger Neto</p>
+                            <p class="carrossel__papel">Dev</p>
+                        </article>
+
+                        <article class="carrossel__slide">
+                            <img class="carrossel__foto" src="img/guilherme-bonetto.jpg"
+                                 alt="Foto de Guilherme da Cunha Bonetto">
+                            <p class="carrossel__nome">Guilherme da Cunha Bonetto</p>
+                            <p class="carrossel__papel">Dev</p>
+                        </article>
+
+                        <article class="carrossel__slide">
+                            <img class="carrossel__foto" src="img/pedro-perdomo.jpg"
+                                 alt="Foto de Pedro Pimentel Perdomo">
+                            <p class="carrossel__nome">Pedro Pimentel Perdomo</p>
+                            <p class="carrossel__papel">Dev</p>
+                        </article>
+
+                        <article class="carrossel__slide carrossel__slide--mentora">
+                            <img class="carrossel__foto" src="img/zainab-ghazaoui.jpg"
+                                 alt="Foto de Zainab Ahmad Al Ghazaoui">
+                            <p class="carrossel__nome">Zainab Ahmad Al Ghazaoui</p>
+                            <p class="carrossel__papel">Mentora</p>
+                        </article>
+
+                    </div>
+
+                    <button class="carrossel__seta carrossel__seta--proximo" type="button"
+                            aria-label="Próximo integrante">&#10095;</button>
+
+                </div>
+
+                <!-- As bolinhas entram aqui, criadas pelo JavaScript -->
+                <div class="carrossel__bolinhas"></div>
+
+            </div>
         </section>
 
     </main>
@@ -191,6 +232,10 @@
             <p>Grupo Optimus &middot; UniAmérica &middot; Atividades acadêmicas</p>
         </div>
     </footer>
+
+    <!-- Carregado no fim do body: assim o HTML do carrossel ja existe
+         quando o script procura por ele -->
+    <script src="js/carrossel.js"></script>
 
 </body>
 
