@@ -44,11 +44,19 @@
     <main class="container">
 
         <section class="intro" id="inicio">
-            <h1>Trabalhos do semestre</h1>
+            <h1>Trabalhos do 2º período</h1>
             <p>
                 Este é o acervo do <strong>Grupo Optimus</strong>. Cada trabalho publicado
                 ao longo do período fica listado aqui, com link direto para a página no ar.
             </p>
+
+            <!-- O periodo aberto leva a classe --ativa e o aria-current, que
+                 avisa o leitor de tela qual das duas paginas e a atual -->
+            <nav class="periodos" aria-label="Escolher período">
+                <a class="periodos__opcao" href="periodo1.html">Período 1</a>
+                <a class="periodos__opcao periodos__opcao--ativa" href="index.html"
+                   aria-current="page">Período 2</a>
+            </nav>
         </section>
 
         <!-- PARA ADICIONAR UM TRABALHO: copie um bloco <a class="projeto">

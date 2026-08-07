@@ -158,6 +158,41 @@ a.logo__nome:hover {
     color: #dce3ec;
 }
 
+/* Alternador de periodo. Cada periodo e uma pagina propria, entao as
+   opcoes sao <a> de verdade: funciona sem JavaScript, cada periodo
+   tem a sua URL e da para mandar o link direto de um deles. */
+.periodos {
+    display: inline-flex;
+    gap: 4px;
+    margin-top: 24px;
+    padding: 4px;
+    background-color: #0e1b3f;
+    border: 1px solid #1f3d73;
+    border-radius: 999px;
+}
+
+.periodos__opcao {
+    color: #b8c4d6;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 8px 20px;
+    border-radius: 999px;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.periodos__opcao:hover {
+    background-color: #16305f;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* O periodo aberto no momento */
+.periodos__opcao--ativa,
+.periodos__opcao--ativa:hover {
+    background-color: #c8102e;
+    color: #ffffff;
+}
+
 
 /* ------------------------------------------------------------
    CATEGORIAS E GRADE DE PROJETOS
@@ -190,6 +225,23 @@ a.logo__nome:hover {
 
 /* O auto-fit + minmax reorganiza os cartoes sozinho conforme a
    largura da tela: 1, 2 ou 5 trabalhos na categoria, tanto faz */
+/* Texto de apoio embaixo do nome da categoria */
+.categoria__texto {
+    color: #b8c4d6;
+    font-size: 16px;
+    max-width: 620px;
+    margin-bottom: 20px;
+}
+
+.categoria__texto code {
+    color: #9fc3ff;
+    background-color: #16305f;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.9em;
+    padding: 1px 6px;
+    border-radius: 4px;
+}
+
 .projetos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -247,6 +299,27 @@ a.projeto:hover {
     margin-top: 18px;
 }
 
+/* Ficha tecnica, usada nos trabalhos do periodo 1: sao programas de
+   console em C, nao tem pagina para abrir - entao o cartao mostra do
+   que o programa e feito, no lugar do link */
+.projeto__tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 18px;
+}
+
+.projeto__tag {
+    color: #b8c4d6;
+    background-color: #0e1b3f;
+    border: 1px solid #1f3d73;
+    border-radius: 999px;
+    font-size: 12px;
+    line-height: 1.7;
+    padding: 1px 10px;
+}
+
 /* Cartao reservado para trabalho ainda nao publicado */
 .projeto--vazio {
     background-color: #06102a;
@@ -260,6 +333,139 @@ a.projeto:hover {
 
 .projeto--vazio .projeto__texto {
     color: #95a3ba;
+}
+
+
+/* ------------------------------------------------------------
+   PRATELEIRA DE ATIVIDADES
+
+   Carrossel horizontal para quando ha trabalhos demais para uma
+   grade: mostra dois cartoes por vez no computador e um no
+   celular, e desliza para os proximos.
+
+   Quem rola e o proprio navegador, com overflow-x + scroll-snap.
+   O js/prateleira.js so manda rolar e acende a bolinha certa.
+   Isso da deslize de dedo, roda do mouse e teclado de graca - e
+   sem JavaScript a prateleira continua rolavel na mao.
+   ------------------------------------------------------------ */
+
+.prateleira__palco {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.prateleira__trilho {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    /* A barra de rolagem sai de cena: a navegacao e pelas setas e
+       pelas bolinhas, e a barra cortaria o rodape dos cartoes */
+    scrollbar-width: none;
+}
+
+.prateleira__trilho::-webkit-scrollbar {
+    display: none;
+}
+
+/* Dois cartoes por vez. O calc desconta o gap que fica entre eles,
+   senao o segundo cartao vazaria alguns pixels para fora. */
+.prateleira__trilho > .projeto {
+    flex: 0 0 calc((100% - 20px) / 2);
+    scroll-snap-align: start;
+}
+
+/* Some quando tudo ja cabe na tela - o JavaScript poe esta classe */
+.prateleira--completa .prateleira__seta,
+.prateleira--completa .prateleira__bolinhas {
+    display: none;
+}
+
+.prateleira__seta {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border: 1px solid #1f3d73;
+    border-radius: 50%;
+    background-color: #0e1b3f;
+    color: #dce3ec;
+    font-size: 17px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.prateleira__seta:hover:not(:disabled) {
+    background-color: #c8102e;
+    border-color: #c8102e;
+    color: #ffffff;
+}
+
+/* Chegou na ponta: a seta apaga em vez de sumir, para os cartoes
+   nao pularem de lugar quando ela sai */
+.prateleira__seta:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+.prateleira__bolinhas {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.prateleira__bolinha {
+    flex-shrink: 0;
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: #1f3d73;
+    cursor: pointer;
+    transition: background-color 0.2s ease, width 0.2s ease;
+}
+
+.prateleira__bolinha:hover {
+    background-color: #7fa6e8;
+}
+
+.prateleira__bolinha--ativa {
+    width: 24px;
+    border-radius: 5px;
+    background-color: #c8102e;
+}
+
+.prateleira__seta:focus-visible,
+.prateleira__bolinha:focus-visible {
+    outline: 2px solid #7fa6e8;
+    outline-offset: 2px;
+}
+
+/* Um cartao por vez na tela estreita */
+@media (max-width: 700px) {
+
+    .prateleira__trilho > .projeto {
+        flex-basis: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .prateleira__trilho {
+        scroll-behavior: auto;
+    }
+
+    .prateleira__seta,
+    .prateleira__bolinha {
+        transition: none;
+    }
 }
 
 
