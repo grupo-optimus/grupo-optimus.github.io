@@ -22,14 +22,26 @@
          ============================================================ -->
     <header class="cabecalho">
         <div class="container cabecalho__interno">
+
             <div class="logo">
                 <img class="logo__icone" src="img/logo.svg"
                      alt="Logo do Grupo Optimus">
                 <div class="logo__textos">
-                    <span class="logo__nome">Optimus</span>
+                    <a class="logo__nome" href="https://grupo-optimus.github.io/">Optimus</a>
                     <span class="logo__slogan">UniAmérica &middot; Período 2</span>
                 </div>
             </div>
+
+            <nav class="menu">
+                <ul class="menu__lista">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#mensal">Mensal</a></li>
+                    <li><a href="#integrador">Integrador II</a></li>
+                    <li><a href="#atividades">Atividades</a></li>
+                    <li><a href="#grupo">Grupo</a></li>
+                </ul>
+            </nav>
+
         </div>
     </header>
 
@@ -38,7 +50,7 @@
         <!-- ============================================================
              APRESENTACAO
              ============================================================ -->
-        <section class="intro">
+        <section class="intro" id="inicio">
             <h1>Trabalhos do semestre</h1>
             <p>
                 Este é o acervo do <strong>Grupo Optimus</strong>. Cada trabalho publicado
@@ -47,10 +59,15 @@
         </section>
 
         <!-- ============================================================
-             TRABALHOS, AGRUPADOS POR MES
+             TRABALHOS, AGRUPADOS POR CATEGORIA
 
-             Cada mes e uma <section class="mes"> com quantos cartoes forem
-             necessarios dentro da <div class="projetos">.
+             Sao tres categorias fixas, nesta ordem:
+             1. Projeto Mensal
+             2. Projeto Integrador de Extensao II
+             3. Atividades
+
+             Cada uma e uma <section class="categoria"> com quantos cartoes
+             forem necessarios dentro da <div class="projetos">.
 
              PARA ADICIONAR UM TRABALHO:
              copie um bloco <a class="projeto"> inteiro e troque tres coisas -
@@ -61,19 +78,47 @@
              repositorio dentro da organizacao grupo-optimus, e o GitHub Pages
              publica todos sob o mesmo dominio.
 
-             PARA ABRIR UM MES NOVO:
-             copie uma <section class="mes"> inteira e troque o h2.
-
              A etiqueta e opcional: sirva-se dela para a materia
              (<span class="projeto__etiqueta">Algoritmos</span>) ou apague.
              ============================================================ -->
 
-        <section class="mes">
-            <h2 class="mes__titulo">Mês 1</h2>
+        <section class="categoria" id="mensal">
+            <h2 class="categoria__titulo">Projeto Mensal</h2>
 
             <div class="projetos">
 
-                <a class="projeto" href="/cozinha-e-codigo/">
+                <div class="projeto projeto--vazio">
+                    <h3 class="projeto__titulo">Ainda não começou</h3>
+                    <p class="projeto__texto">
+                        Assim que o projeto mensal for publicado, ele aparece aqui.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="categoria" id="integrador">
+            <h2 class="categoria__titulo">Projeto Integrador de Extensão II</h2>
+
+            <div class="projetos">
+
+                <div class="projeto projeto--vazio">
+                    <h3 class="projeto__titulo">Ainda não começou</h3>
+                    <p class="projeto__texto">
+                        Assim que o projeto integrador for publicado, ele aparece aqui.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="categoria" id="atividades">
+            <h2 class="categoria__titulo">Atividades</h2>
+
+            <div class="projetos">
+
+                <a class="projeto" href="https://grupo-optimus.github.io/cozinha-e-codigo/">
+                    <span class="projeto__etiqueta">HTML5 e CSS3</span>
                     <h3 class="projeto__titulo">Cozinha &amp; Código</h3>
                     <p class="projeto__texto">
                         Um paralelo direto entre receitas de cozinha e algoritmos: ingredientes
@@ -86,22 +131,7 @@
                 <div class="projeto projeto--vazio">
                     <h3 class="projeto__titulo">Espaço reservado</h3>
                     <p class="projeto__texto">
-                        Os outros trabalhos deste mês entram aqui do lado.
-                    </p>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="mes">
-            <h2 class="mes__titulo">Mês 2</h2>
-
-            <div class="projetos">
-
-                <div class="projeto projeto--vazio">
-                    <h3 class="projeto__titulo">Ainda não começou</h3>
-                    <p class="projeto__texto">
-                        Assim que o primeiro trabalho do mês for publicado, ele aparece aqui.
+                        As próximas atividades entram aqui do lado.
                     </p>
                 </div>
 
@@ -111,7 +141,7 @@
         <!-- ============================================================
              INTEGRANTES
              ============================================================ -->
-        <section class="grupo">
+        <section class="grupo" id="grupo">
             <h2>Quem faz parte</h2>
 
             <!-- As fotos sao quadradas (300x300) e o CSS as recorta em circulo.
