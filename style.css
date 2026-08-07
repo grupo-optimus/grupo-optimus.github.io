@@ -299,6 +299,20 @@ a.projeto:hover {
     margin-top: 18px;
 }
 
+/* Para cartao com mais de um destino, que por isso nao pode ser um <a>
+   envolvendo tudo - link dentro de link e HTML invalido */
+.projeto__acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    margin-top: 18px;
+}
+
+.projeto__acoes a {
+    color: #ff5a5a;
+    font-weight: 700;
+}
+
 /* Ficha tecnica, usada nos trabalhos do periodo 1: sao programas de
    console em C, nao tem pagina para abrir - entao o cartao mostra do
    que o programa e feito, no lugar do link */
