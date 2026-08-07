@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trabalhos academicos do Grupo Optimus - UniAmerica. Portfolio dos projetos do semestre.">
+    <meta name="author" content="Grupo Optimus">
+    <title>Grupo Optimus | Trabalhos do semestre</title>
+
+    <!-- Copia local: cada repositorio do grupo carrega os proprios arquivos -->
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ATENCAO: o cabecalho e o rodape sao iguais em index.html,
+         periodo1.html e periodo2.html. Mexeu aqui, mexa nos tres. -->
+    <header class="cabecalho">
+        <div class="container cabecalho__interno">
+
+            <div class="logo">
+                <img class="logo__icone" src="img/logo.svg"
+                     alt="Logo do Grupo Optimus">
+                <div class="logo__textos">
+                    <a class="logo__nome" href="index.html">Optimus</a>
+                    <span class="logo__slogan">UniAmérica &middot; Período 2</span>
+                </div>
+            </div>
+
+            <nav class="menu">
+                <ul class="menu__lista">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#mensal">Mensal</a></li>
+                    <li><a href="#integrador">Integrador II</a></li>
+                    <li><a href="#atividades">Atividades</a></li>
+                    <li><a href="#grupo">Grupo</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="intro" id="inicio">
+            <h1>Trabalhos do 2º período</h1>
+            <p>
+                Este é o acervo do <strong>Grupo Optimus</strong>. Cada trabalho publicado
+                ao longo do período fica listado aqui, com link direto para a página no ar.
+            </p>
+
+            <!-- O periodo aberto leva a classe --ativa e o aria-current, que
+                 avisa o leitor de tela qual das duas paginas e a atual -->
+            <nav class="periodos" aria-label="Escolher período">
+                <a class="periodos__opcao" href="periodo1.html">Período 1</a>
+                <a class="periodos__opcao periodos__opcao--ativa" href="periodo2.html"
+                   aria-current="page">Período 2</a>
+            </nav>
+        </section>
+
+        <!-- PARA ADICIONAR UM TRABALHO: copie um bloco <a class="projeto">
+             inteiro e troque o href, o titulo e a descricao.
+
+             Cada trabalho mora no seu proprio repositorio dentro da
+             organizacao grupo-optimus, e o GitHub Pages publica todos sob o
+             mesmo dominio - por isso o href e o nome do repositorio, com
+             barra na frente e no fim: /cozinha-e-codigo/. -->
+
+        <section class="categoria" id="mensal">
+            <h2 class="categoria__titulo">Projeto Mensal</h2>
+
+            <div class="projetos">
+
+                <div class="projeto projeto--vazio">
+                    <h3 class="projeto__titulo">Ainda não começou</h3>
+                    <p class="projeto__texto">
+                        Assim que o projeto mensal for publicado, ele aparece aqui.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="categoria" id="integrador">
+            <h2 class="categoria__titulo">Projeto Integrador de Extensão II</h2>
+
+            <div class="projetos">
+
+                <div class="projeto projeto--vazio">
+                    <h3 class="projeto__titulo">Ainda não começou</h3>
+                    <p class="projeto__texto">
+                        Assim que o projeto integrador for publicado, ele aparece aqui.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="categoria" id="atividades">
+            <h2 class="categoria__titulo">Atividades</h2>
+
+            <div class="projetos">
+
+                <a class="projeto" href="https://grupo-optimus.github.io/cozinha-e-codigo/">
+                    <span class="projeto__etiqueta">HTML5 e CSS3</span>
+                    <h3 class="projeto__titulo">Cozinha &amp; Código</h3>
+                    <p class="projeto__texto">
+                        Um paralelo direto entre receitas de cozinha e algoritmos: ingredientes
+                        são variáveis, mise en place é inicialização e seguir a receita à risca
+                        é determinismo.
+                    </p>
+                    <span class="projeto__acao">Abrir o trabalho &rarr;</span>
+                </a>
+
+                <div class="projeto projeto--vazio">
+                    <h3 class="projeto__titulo">Espaço reservado</h3>
+                    <p class="projeto__texto">
+                        As próximas atividades entram aqui do lado.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="grupo" id="grupo">
+            <h2>Quem faz parte</h2>
+            <p class="grupo__legenda">
+                Seis pessoas por trás dos trabalhos deste acervo.
+            </p>
+
+            <!-- PARA INCLUIR ALGUEM: copie um bloco <article class="carrossel__slide">
+                 inteiro e troque a foto, o nome e o papel. A bolinha correspondente
+                 e criada sozinha pelo JavaScript.
+
+                 As fotos sao quadradas (300x300) e o CSS as recorta em circulo.
+
+                 ATENCAO: so o primeiro slide leva a classe carrossel__slide--ativo,
+                 que e o que deixa um slide visivel. Se o JavaScript nao carregar,
+                 e esse integrante que fica na tela, em vez de a secao ficar vazia. -->
+            <div class="carrossel">
+
+                <div class="carrossel__palco">
+
+                    <button class="carrossel__seta carrossel__seta--anterior" type="button"
+                            aria-label="Integrante anterior">&#10094;</button>
+
+                    <!-- aria-live avisa o leitor de tela quando o slide troca -->
+                    <div class="carrossel__slides" aria-live="polite">
+
+                        <article class="carrossel__slide carrossel__slide--ativo">
+                            <img class="carrossel__foto" src="img/caue-hanzen.jpg"
+                                 alt="Foto de Cauê Vergopolan Hanzen">
+                            <p class="carrossel__nome">Cauê Vergopolan Hanzen</p>
+                            <p class="carrossel__papel">Scrum Master</p>
+                        </article>
+
+                        <article class="carrossel__slide">
+                            <img class="carrossel__foto" src="img/andre-castelhano.jpg"
+                                 alt="Foto de André Luis Castelhano">
+                            <p class="carrossel__nome">André Luis Castelhano</p>
+                            <p class="carrossel__papel">Product Owner</p>
+                        </article>
+
+                        <article class="carrossel__slide">
+                            <img class="carrossel__foto" src="img/carlos-menger.jpg"
+                                 alt="Foto de Carlos Henrique da Silva Menger Neto">
+                            <p class="carrossel__nome">Carlos Henrique da Silva Menger Neto</p>
+                            <p class="carrossel__papel">Dev</p>
+                        </article>
+
+                        <article class="carrossel__slide">
+                            <img class="carrossel__foto" src="img/guilherme-bonetto.jpg"
+                                 alt="Foto de Guilherme da Cunha Bonetto">
+                            <p class="carrossel__nome">Guilherme da Cunha Bonetto</p>
+                            <p class="carrossel__papel">Dev</p>
+                        </article>
+
+                        <article class="carrossel__slide">
+                            <img class="carrossel__foto" src="img/pedro-perdomo.jpg"
+                                 alt="Foto de Pedro Pimentel Perdomo">
+                            <p class="carrossel__nome">Pedro Pimentel Perdomo</p>
+                            <p class="carrossel__papel">Dev</p>
+                        </article>
+
+                        <!-- A mentora leva --mentora, que troca o anel da foto
+                             de vermelho para azul -->
+                        <article class="carrossel__slide carrossel__slide--mentora">
+                            <img class="carrossel__foto" src="img/zainab-ghazaoui.jpg"
+                                 alt="Foto de Zainab Ahmad Al Ghazaoui">
+                            <p class="carrossel__nome">Zainab Ahmad Al Ghazaoui</p>
+                            <p class="carrossel__papel">Mentora</p>
+                        </article>
+
+                    </div>
+
+                    <button class="carrossel__seta carrossel__seta--proximo" type="button"
+                            aria-label="Próximo integrante">&#10095;</button>
+
+                </div>
+
+                <!-- As bolinhas entram aqui, criadas pelo JavaScript -->
+                <div class="carrossel__bolinhas"></div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="rodape">
+        <div class="container">
+            <p>Grupo Optimus &middot; UniAmérica &middot; Atividades acadêmicas</p>
+        </div>
+    </footer>
+
+    <!-- No fim do body: assim o HTML do carrossel ja existe quando o
+         script procura por ele -->
+    <script src="js/carrossel.js"></script>
+
+</body>
+
+</html>

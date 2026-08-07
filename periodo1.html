@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trabalhos do 1o periodo do Grupo Optimus - UniAmerica. Projetos em C e C++, do PDV ao robo sumo.">
+    <meta name="author" content="Grupo Optimus">
+    <title>Grupo Optimus | Trabalhos do 1º período</title>
+
+    <!-- Copia local: cada repositorio do grupo carrega os proprios arquivos -->
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ATENCAO: o cabecalho e o rodape sao iguais em index.html,
+         periodo1.html e periodo2.html. Mexeu aqui, mexa nos tres. -->
+    <header class="cabecalho">
+        <div class="container cabecalho__interno">
+
+            <div class="logo">
+                <img class="logo__icone" src="img/logo.svg"
+                     alt="Logo do Grupo Optimus">
+                <div class="logo__textos">
+                    <a class="logo__nome" href="index.html">Optimus</a>
+                    <span class="logo__slogan">UniAmérica &middot; Período 1</span>
+                </div>
+            </div>
+
+            <nav class="menu">
+                <ul class="menu__lista">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#mensal">Mensal</a></li>
+                    <li><a href="#integrador">Integrador I</a></li>
+                    <li><a href="#atividades">Atividades</a></li>
+                    <li><a href="#grupo">Grupo</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="intro" id="inicio">
+            <h1>Trabalhos do 1º período</h1>
+            <p>
+                O primeiro semestre do <strong>Grupo Optimus</strong> foi todo em C e C++,
+                rodando no terminal e no Arduino — antes de existir qualquer página web.
+                Como são programas de console, não há link para abrir: cada cartão mostra
+                o que o programa faz e do que ele é feito.
+            </p>
+
+            <!-- O periodo aberto leva a classe --ativa e o aria-current, que
+                 avisa o leitor de tela qual das duas paginas e a atual -->
+            <nav class="periodos" aria-label="Escolher período">
+                <a class="periodos__opcao periodos__opcao--ativa" href="periodo1.html"
+                   aria-current="page">Período 1</a>
+                <a class="periodos__opcao" href="periodo2.html">Período 2</a>
+            </nav>
+        </section>
+
+        <!-- Os trabalhos do periodo 1 nao estao publicados em lugar nenhum: o
+             codigo vive nas maquinas do grupo. Por isso os cartoes sao <div> e
+             nao <a>, e trazem <ul class="projeto__tags"> no lugar do link.
+             A excecao e o robo, que tem portfolio no site da faculdade. -->
+
+        <section class="categoria" id="mensal">
+            <h2 class="categoria__titulo">Projeto Mensal</h2>
+
+            <div class="projetos">
+
+                <a class="projeto" href="https://github.com/grupo-optimus/quiz-mensal"
+                   target="_blank" rel="noopener">
+                    <span class="projeto__etiqueta">C &middot; 1ª entrega</span>
+                    <h3 class="projeto__titulo">Quiz multiplayer</h3>
+                    <p class="projeto__texto">
+                        Quiz de verdadeiro ou falso para até 5 jogadores — e as perguntas
+                        são cadastradas pelo próprio usuário, não ficam fixas no código.
+                        Cada jogador responde uma vez só, e no fim o placar sai ordenado
+                        por pontuação.
+                    </p>
+                    <ul class="projeto__tags">
+                        <li class="projeto__tag">Structs</li>
+                        <li class="projeto__tag">Bubble sort</li>
+                        <li class="projeto__tag">Validação de entrada</li>
+                        <li class="projeto__tag">421 linhas</li>
+                    </ul>
+                    <span class="projeto__acao">Ver o código no GitHub &rarr;</span>
+                </a>
+
+                <a class="projeto" href="https://github.com/grupo-optimus/pdv"
+                   target="_blank" rel="noopener">
+                    <span class="projeto__etiqueta">C &middot; 2ª entrega</span>
+                    <h3 class="projeto__titulo">PDV &mdash; Mercadinho</h3>
+                    <p class="projeto__texto">
+                        Sistema de ponto de venda inteiro: login com senha, dois níveis de
+                        acesso, cadastro de produtos e de usuários, abertura e fechamento
+                        de caixa, venda com vários itens e três relatórios. Os dados
+                        sobrevivem ao fechar o programa — ficam gravados em arquivos.
+                    </p>
+                    <ul class="projeto__tags">
+                        <li class="projeto__tag">Structs</li>
+                        <li class="projeto__tag">Arquivos</li>
+                        <li class="projeto__tag">Hash de senha</li>
+                        <li class="projeto__tag">1.628 linhas</li>
+                    </ul>
+                    <span class="projeto__acao">Ver o código no GitHub &rarr;</span>
+                </a>
+
+            </div>
+        </section>
+
+        <section class="categoria" id="integrador">
+            <h2 class="categoria__titulo">Projeto Integrador de Extensão I</h2>
+
+            <div class="projetos">
+
+                <!-- Este cartao tem dois destinos, entao nao da para envolver tudo
+                     num <a> como os outros: link dentro de link e HTML invalido.
+                     Os dois links ficam no rodape do cartao. -->
+                <div class="projeto">
+                    <span class="projeto__etiqueta">C++ &middot; Arduino</span>
+                    <h3 class="projeto__titulo">Robô Sumô</h3>
+                    <p class="projeto__texto">
+                        Robô autônomo de sumô: quatro sensores infravermelhos leem a borda
+                        do ringue para ele não cair, enquanto o ultrassônico procura o
+                        oponente. A borda tem prioridade sobre tudo — cair para fora é
+                        derrota imediata. Junto vão três programas só para calibrar os
+                        motores, os sensores de borda e a distância.
+                    </p>
+                    <ul class="projeto__tags">
+                        <li class="projeto__tag">Arduino Uno</li>
+                        <li class="projeto__tag">Ponte H L298N</li>
+                        <li class="projeto__tag">4x sensor IR</li>
+                        <li class="projeto__tag">HC-SR04</li>
+                    </ul>
+                    <div class="projeto__acoes">
+                        <a href="https://portfoliodigital.uniamerica.br/projetos/robo-sumo-optimus-6a3be08175212"
+                           target="_blank" rel="noopener">Portfólio da UniAmérica &rarr;</a>
+                        <a href="https://github.com/grupo-optimus/robo-sumo"
+                           target="_blank" rel="noopener">Código no GitHub &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="categoria" id="atividades">
+            <h2 class="categoria__titulo">Atividades</h2>
+
+            <p class="categoria__texto">
+                Doze atividades em ordem de dificuldade — e a ordem não é decorativa:
+                dá para acompanhar o grupo saindo de <code>if/else</code> e chegando em
+                ponteiros e Arduino ao longo do semestre. Todas estão no repositório
+                <a href="https://github.com/grupo-optimus/atividades-periodo1"
+                   target="_blank" rel="noopener">atividades-periodo1</a>.
+            </p>
+
+            <!-- PRATELEIRA: carrossel horizontal de cartoes.
+
+                 PARA ACRESCENTAR UMA ATIVIDADE basta copiar um bloco
+                 <a class="projeto"> para dentro do trilho. As bolinhas sao
+                 recalculadas sozinhas pelo js/prateleira.js - nao ha numero
+                 de cartoes escrito em lugar nenhum. -->
+            <div class="prateleira">
+
+                <div class="prateleira__palco">
+
+                    <button class="prateleira__seta prateleira__seta--anterior" type="button"
+                            aria-label="Atividades anteriores">&#10094;</button>
+
+                    <div class="prateleira__trilho">
+
+                        <a class="projeto" href="https://github.com/grupo-optimus/atividades-periodo1/tree/main/01-avaliacao-votos"
+                           target="_blank" rel="noopener">
+                            <span class="projeto__etiqueta">01 &middot; C</span>
+                            <h3 class="projeto__titulo">Avaliação de votos</h3>
+                            <p class="projeto__texto">
+                                Urna simplificada: 20 votos entre três candidatos, branco ou
+                                nulo, com relatório no fim. Voto inválido não conta e devolve
+                                o turno, então a urna sempre fecha com 20 votos válidos.
+                            </p>
+                            <ul class="projeto__tags">
+                                <li class="projeto__tag">if/else</li>
+                                <li class="projeto__tag">Contadores</li>
+                            </ul>
+                        </a>
+
+                        <a class="projeto" href="https://github.com/grupo-optimus/atividades-periodo1/tree/main/02-filtrar-prioridade"
+                           target="_blank" rel="noopener">
+                            <span class="projeto__etiqueta">02 &middot; C</span>
+                            <h3 class="projeto__titulo">Filtrar prioridade</h3>
+                            <p class="projeto__texto">
+                                Monitor de processos: lê 10 prioridades, acha maior, menor e a
+                                diferença entre elas, e dispara alerta quando alguma passa de 90.
+                            </p>
+                            <ul class="projeto__tags">
+                                <li class="projeto__tag">Vetor</li>
+                                <li class="projeto__tag">Validação</li>
+                            </ul>
+                        </a>
+
+                        <a class="projeto" href="https://github.com/grupo-optimus/atividades-periodo1/tree/main/03-verificar-duplicados"
+                           target="_blank" rel="noopener">
+                            <span class="projeto__etiqueta">03 &middot; C</span>
+                            <h3 class="projeto__titulo">Verificar duplicados</h3>
+                            <p class="projeto__texto">
+                                Compara dois servidores de cinco valores e aponta cada conflito,
+                                dizendo a posição nos dois lados — não só que houve conflito.
+                            </p>
+                            <ul class="projeto__tags">
+                                <li class="projeto__tag">Laço aninhado</li>
+                                <li class="projeto__tag">Dois vetores</li>
+                            </ul>
+                        </a>
+
+                        <a class="projeto" href="https://github.com/grupo-optimus/atividades-periodo1/tree/main/04-string-login"
+                           target="_blank" rel="noopener">
+                            <span class="projeto__etiqueta">04 &middot; C</span>
+                            <h3 class="projeto__titulo">String login</h3>
+                            <p class="projeto__texto">
+                                Registro e login com senha de no mínimo 8 caracteres. Tentar
+                                entrar antes de se registrar é barrado.
+                            </p>
+                            <ul class="projeto__tags">
+                                <li class="projeto__tag">Strings</li>
+                                <li class="projeto__tag">strcmp</li>
+                                <li class="projeto__tag">fgets</li>
+                            </ul>
+                        </a>
+
+                        <a class="projeto" href="https://github.com/grupo-optimus/atividades-periodo1/tree/main/05-maquina-moedas"
+                           target="_blank" rel="noopener">
+                            <span class="projeto__etiqueta">05 &middot; C</span>
+                            <h3 class="projeto__titulo">Máquina de moedas</h3>
+                            <p class="projeto__texto">
+                                Recebe um valor e devolve a menor quantidade de dinheiro possível.
+                                A atividade pedia só as moedas; o grupo estendeu para as cédulas
+                                também, de R$&nbsp;2 até R$&nbsp;200.
+                            </p>
+                            <ul class="projeto__tags">
+                                <li class="projeto__tag">Algoritmo guloso</li>
+                                <li class="projeto__tag">R$ 200 a R$ 0,05</li>
+                            </ul>
+                        </a>
+
+                        <a class="projeto" href="https://github.com/grupo-optimus/atividades-periodo1/tree/main/06-quiz-v1"
+                           target="_blank" rel="noopener">
+                            <span class="projeto__etiqueta">06 &middot; C</span>
+                            <h3 class="projeto__titulo">Quiz v1</h3>
+                            <p class="projeto__texto">
+                                Primeira versão do quiz, com menu e pontuação guardada entre uma
+                                opção e outra. É o ponto de partida do quiz multiplayer que virou
+                                projeto mensal.
+                            </p>
+                            <ul class="projeto__tags">
+                                <li class="projeto__tag">Menu com estado</li>
+                            </ul>
+                        </a>
+
+                        <a class="projeto" href="https://github.com/grupo-optimus/atividades-periodo1/tree/main/07-recursividade"
+                           target="_blank" rel="noopener">
+                            <span class="projeto__etiqueta">07 &middot; C</span>
+                            <h3 class="projeto__titulo">Recursividade</h3>
+                            <p class="projeto__texto">
+                                Cadastro de clientes e fornecedores em que a listagem não usa
+                                laço: a função chama a si mesma com o índice seguinte até chegar
+                                ao fim do banco.
+                            </p>
+                            <ul class="projeto__tags">
+                                <li class="projeto__tag">Recursão</li>
+                                <li class="projeto__tag">Caso base</li>
+                            </ul>
+                        </a>
+
+                        <a class="projeto" href="https://github.com/grupo-optimus/atividades-periodo1/tree/main/08-struct-desafio"
+                           target="_blank" rel="noopener">
+                            <span class="projeto__etiqueta">08 &middot; C</span>
+                            <h3 class="projeto__titulo">Struct desafio</h3>
+                            <p class="projeto__texto">
+                                Cadastro de até 50 pessoas guardadas numa struct, com busca por
+                                sobrenome que devolve todos os que batem, não só o primeiro.
+                            </p>
+                            <ul class="projeto__tags">
+                                <li class="projeto__tag">struct</li>
+                                <li class="projeto__tag">Busca por campo</li>
+                            </ul>
+                        </a>
+
+                        <a class="projeto" href="https://github.com/grupo-optimus/atividades-periodo1/tree/main/09-calculadora-matrizes"
+                           target="_blank" rel="noopener">
+                            <span class="projeto__etiqueta">09 &middot; C</span>
+                            <h3 class="projeto__titulo">Calculadora de matrizes</h3>
+                            <p class="projeto__texto">
+                                Soma, subtração, multiplicação e divisão de matrizes 3x3. A
+                                multiplicação é a parte boa: não é elemento por elemento, precisa
+                                do laço triplo somando linha contra coluna.
+                            </p>
+                            <ul class="projeto__tags">
+                                <li class="projeto__tag">Matriz 3x3</li>
+                                <li class="projeto__tag">Laço triplo</li>
+                            </ul>
+                        </a>
+
+                        <a class="projeto" href="https://github.com/grupo-optimus/atividades-periodo1/tree/main/10-ponteiros"
+                           target="_blank" rel="noopener">
+                            <span class="projeto__etiqueta">10 &middot; C</span>
+                            <h3 class="projeto__titulo">Ponteiros</h3>
+                            <p class="projeto__texto">
+                                Exercício de ponteiros que já é um mini PDV: abrir caixa,
+                                cadastrar produtos e vender. É o projeto mensal nascendo dentro
+                                de uma atividade de aula — 162 linhas aqui, 1.628 lá.
+                            </p>
+                            <ul class="projeto__tags">
+                                <li class="projeto__tag">Ponteiros</li>
+                                <li class="projeto__tag">Passagem por referência</li>
+                            </ul>
+                        </a>
+
+                        <a class="projeto" href="https://github.com/grupo-optimus/atividades-periodo1/tree/main/11-bogosort"
+                           target="_blank" rel="noopener">
+                            <span class="projeto__etiqueta">11 &middot; C</span>
+                            <h3 class="projeto__titulo">Bogosort</h3>
+                            <p class="projeto__texto">
+                                Embaralha o vetor, torce para ter ficado ordenado e, se não
+                                ficou, embaralha de novo. O algoritmo mais ineficiente que
+                                existe — e é justamente aí que dá para enxergar o que
+                                complexidade significa.
+                            </p>
+                            <ul class="projeto__tags">
+                                <li class="projeto__tag">Complexidade</li>
+                                <li class="projeto__tag">10! = 3.628.800</li>
+                            </ul>
+                        </a>
+
+                        <a class="projeto" href="https://github.com/grupo-optimus/atividades-periodo1/tree/main/12-arduino-motores-sensores"
+                           target="_blank" rel="noopener">
+                            <span class="projeto__etiqueta">12 &middot; C++ &middot; Arduino</span>
+                            <h3 class="projeto__titulo">Motores e sensores</h3>
+                            <p class="projeto__texto">
+                                Os testes que vieram antes do robô: dois motores por ponte H e a
+                                primeira leitura de sensor acionando o motor. Foi aqui que a
+                                montagem do Integrador I começou a tomar forma.
+                            </p>
+                            <ul class="projeto__tags">
+                                <li class="projeto__tag">Ponte H</li>
+                                <li class="projeto__tag">PWM</li>
+                                <li class="projeto__tag">Sensor</li>
+                            </ul>
+                        </a>
+
+                    </div>
+
+                    <button class="prateleira__seta prateleira__seta--proximo" type="button"
+                            aria-label="Próximas atividades">&#10095;</button>
+
+                </div>
+
+                <!-- As bolinhas entram aqui, criadas pelo JavaScript -->
+                <div class="prateleira__bolinhas"></div>
+
+            </div>
+        </section>
+
+        <section class="grupo" id="grupo">
+            <h2>Quem fez parte</h2>
+            <p class="grupo__legenda">
+                No 1º período o grupo era de cinco pessoas.
+            </p>
+
+            <!-- Carrossel igual ao da outra pagina, mesmo js/carrossel.js.
+                 Aqui o Pedro nao aparece: ele entrou no grupo no 2o periodo. -->
+            <div class="carrossel">
+
+                <div class="carrossel__palco">
+
+                    <button class="carrossel__seta carrossel__seta--anterior" type="button"
+                            aria-label="Integrante anterior">&#10094;</button>
+
+                    <!-- aria-live avisa o leitor de tela quando o slide troca -->
+                    <div class="carrossel__slides" aria-live="polite">
+
+                        <article class="carrossel__slide carrossel__slide--ativo">
+                            <img class="carrossel__foto" src="img/andre-castelhano.jpg"
+                                 alt="Foto de André Luis Castelhano">
+                            <p class="carrossel__nome">André Luis Castelhano</p>
+                            <p class="carrossel__papel">Dev</p>
+                        </article>
+
+                        <article class="carrossel__slide">
+                            <img class="carrossel__foto" src="img/carlos-menger.jpg"
+                                 alt="Foto de Carlos Henrique da Silva Menger Neto">
+                            <p class="carrossel__nome">Carlos Henrique da Silva Menger Neto</p>
+                            <p class="carrossel__papel">Dev</p>
+                        </article>
+
+                        <article class="carrossel__slide">
+                            <img class="carrossel__foto" src="img/caue-hanzen.jpg"
+                                 alt="Foto de Cauê Vergopolan Hanzen">
+                            <p class="carrossel__nome">Cauê Vergopolan Hanzen</p>
+                            <p class="carrossel__papel">Dev</p>
+                        </article>
+
+                        <article class="carrossel__slide">
+                            <img class="carrossel__foto" src="img/guilherme-bonetto.jpg"
+                                 alt="Foto de Guilherme da Cunha Bonetto">
+                            <p class="carrossel__nome">Guilherme da Cunha Bonetto</p>
+                            <p class="carrossel__papel">Dev</p>
+                        </article>
+
+                        <!-- A mentora leva --mentora, que troca o anel da foto
+                             de vermelho para azul -->
+                        <article class="carrossel__slide carrossel__slide--mentora">
+                            <img class="carrossel__foto" src="img/zainab-ghazaoui.jpg"
+                                 alt="Foto de Zainab Ahmad Al Ghazaoui">
+                            <p class="carrossel__nome">Zainab Ahmad Al Ghazaoui</p>
+                            <p class="carrossel__papel">Mentora</p>
+                        </article>
+
+                    </div>
+
+                    <button class="carrossel__seta carrossel__seta--proximo" type="button"
+                            aria-label="Próximo integrante">&#10095;</button>
+
+                </div>
+
+                <!-- As bolinhas entram aqui, criadas pelo JavaScript -->
+                <div class="carrossel__bolinhas"></div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="rodape">
+        <div class="container">
+            <p>Grupo Optimus &middot; UniAmérica &middot; Atividades acadêmicas</p>
+        </div>
+    </footer>
+
+    <!-- No fim do body: assim o HTML do carrossel ja existe quando o
+         script procura por ele -->
+    <script src="js/carrossel.js"></script>
+    <script src="js/prateleira.js"></script>
+
+</body>
+
+</html>
