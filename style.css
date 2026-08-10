@@ -8,7 +8,6 @@
    #FFFFFF titulos  #DCE3EC texto      #95A3BA legendas
    ============================================================ */
 
-
 * {
     margin: 0;
     padding: 0;
@@ -29,6 +28,10 @@ body {
     color: #dce3ec;
 }
 
+main {
+    padding-top: 100px;
+}
+
 a {
     color: #ff5a5a;
     text-decoration: none;
@@ -38,24 +41,28 @@ a:hover {
     color: #ff8a8a;
 }
 
-
 .container {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
-    padding: 0 20px;
 }
-
 
 /* ------------------------------------------------------------
    CABECALHO
    ------------------------------------------------------------ */
 
 .cabecalho {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
     background-color: #0e1b3f;
     color: #ffffff;
     padding: 18px 0;
     border-bottom: 4px solid #c8102e;
+
+    z-index: 1000;
 }
 
 .cabecalho__interno {
@@ -133,7 +140,6 @@ a.logo__nome:hover {
     text-decoration: none;
 }
 
-
 /* ------------------------------------------------------------
    APRESENTACAO
    ------------------------------------------------------------ */
@@ -192,7 +198,6 @@ a.logo__nome:hover {
     background-color: #c8102e;
     color: #ffffff;
 }
-
 
 /* ------------------------------------------------------------
    CATEGORIAS E GRADE DE PROJETOS
@@ -349,7 +354,6 @@ a.projeto:hover {
     color: #95a3ba;
 }
 
-
 /* ------------------------------------------------------------
    INTEGRANTES EM GRADE (pagina inicial)
 
@@ -432,7 +436,6 @@ a.projeto:hover {
     font-size: 14px;
     font-weight: 700;
 }
-
 
 /* ------------------------------------------------------------
    PRATELEIRA DE ATIVIDADES
@@ -565,7 +568,6 @@ a.projeto:hover {
         transition: none;
     }
 }
-
 
 /* ------------------------------------------------------------
    INTEGRANTES (CARROSSEL)
@@ -750,7 +752,6 @@ a.projeto:hover {
     }
 }
 
-
 /* ------------------------------------------------------------
    RODAPE
    ------------------------------------------------------------ */
@@ -766,7 +767,6 @@ a.projeto:hover {
     font-size: 15px;
     text-align: center;
 }
-
 
 /* ------------------------------------------------------------
    RESPONSIVIDADE (celular)
